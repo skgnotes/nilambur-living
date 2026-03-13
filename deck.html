@@ -1,0 +1,1061 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nilambur Senior Living — Investor Presentation</title>
+<style>
+  :root {
+    --navy: #1a1a2e;
+    --navy2: #2c3e6e;
+    --accent: #4a90d9;
+    --gold: #e8b84b;
+    --green: #27ae60;
+    --red: #e74c3c;
+    --white: #ffffff;
+    --offwhite: #f7f9fc;
+    --muted: #6b7a99;
+    --border: #dde3f0;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body { width: 100%; height: 100%; overflow: hidden; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+    background: var(--navy);
+    color: var(--white);
+  }
+
+  /* ── SLIDE ENGINE ── */
+  .deck { width: 100vw; height: 100vh; position: relative; }
+
+  .slide {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.4s ease;
+    overflow: hidden;
+  }
+  .slide.active { opacity: 1; pointer-events: all; }
+
+  /* ── NAV ── */
+  .nav {
+    position: fixed;
+    bottom: 28px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    z-index: 100;
+    background: rgba(0,0,0,0.5);
+    padding: 10px 20px;
+    border-radius: 40px;
+    backdrop-filter: blur(8px);
+  }
+  .nav button {
+    background: rgba(255,255,255,0.15);
+    color: #fff;
+    border: none;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    font-size: 16px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.2s;
+  }
+  .nav button:hover { background: rgba(255,255,255,0.3); }
+  .nav button:disabled { opacity: 0.3; cursor: default; }
+  .slide-counter { font-size: 12px; color: rgba(255,255,255,0.6); min-width: 50px; text-align: center; }
+
+  .dots {
+    position: fixed;
+    right: 24px;
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    z-index: 100;
+  }
+  .dot {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.25);
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+  .dot.active { background: var(--accent); transform: scale(1.4); }
+
+  /* ── SLIDE BACKGROUNDS ── */
+  .bg-navy   { background: var(--navy); }
+  .bg-navy2  { background: var(--navy2); }
+  .bg-white  { background: #fff; color: var(--navy); }
+  .bg-dark   { background: #0d0d1a; }
+  .bg-split-navy { background: linear-gradient(135deg, #0d0d1a 0%, #1a1a2e 50%, #2c3e6e 100%); }
+
+  /* ── SLIDE 1: COVER ── */
+  .slide-cover {
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background: linear-gradient(135deg, #0d0d1a 0%, #1a1a2e 60%, #1e2d5a 100%);
+    padding: 60px;
+  }
+  .cover-eyebrow {
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    color: var(--accent);
+    margin-bottom: 24px;
+  }
+  .cover-title {
+    font-size: 56px;
+    font-weight: 800;
+    line-height: 1.05;
+    margin-bottom: 16px;
+    letter-spacing: -1px;
+  }
+  .cover-title span { color: var(--gold); }
+  .cover-subtitle {
+    font-size: 20px;
+    color: rgba(255,255,255,0.6);
+    margin-bottom: 48px;
+    font-weight: 300;
+    max-width: 580px;
+  }
+  .cover-meta {
+    display: flex;
+    gap: 40px;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  .cover-meta-item { text-align: center; }
+  .cover-meta-item .val {
+    font-size: 32px;
+    font-weight: 800;
+    color: var(--gold);
+    line-height: 1;
+    margin-bottom: 4px;
+  }
+  .cover-meta-item .lbl {
+    font-size: 11px;
+    color: rgba(255,255,255,0.5);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+  .cover-divider {
+    width: 1px;
+    height: 48px;
+    background: rgba(255,255,255,0.15);
+    align-self: center;
+  }
+  .confidential-tag {
+    position: absolute;
+    top: 28px;
+    right: 32px;
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: rgba(255,255,255,0.3);
+    border: 1px solid rgba(255,255,255,0.15);
+    padding: 5px 12px;
+    border-radius: 3px;
+  }
+  .promoter-tag {
+    position: absolute;
+    top: 28px;
+    left: 32px;
+    font-size: 12px;
+    color: rgba(255,255,255,0.4);
+  }
+
+  /* ── SECTION HEADER ── */
+  .slide-header {
+    padding: 36px 64px 0;
+    flex-shrink: 0;
+  }
+  .section-label {
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    color: var(--accent);
+    margin-bottom: 8px;
+  }
+  .slide-title {
+    font-size: 34px;
+    font-weight: 800;
+    line-height: 1.15;
+    letter-spacing: -0.5px;
+  }
+  .slide-title.light { color: var(--navy); }
+  .slide-rule {
+    width: 48px;
+    height: 4px;
+    background: var(--accent);
+    border-radius: 2px;
+    margin-top: 14px;
+  }
+  .slide-rule.gold { background: var(--gold); }
+
+  /* ── SLIDE BODY ── */
+  .slide-body {
+    flex: 1;
+    padding: 32px 64px 80px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    overflow: hidden;
+  }
+  .slide-body.row { flex-direction: row; gap: 40px; align-items: stretch; }
+
+  /* ── STAT BOXES ── */
+  .stat-grid {
+    display: grid;
+    gap: 16px;
+  }
+  .stat-grid-2 { grid-template-columns: repeat(2, 1fr); }
+  .stat-grid-3 { grid-template-columns: repeat(3, 1fr); }
+  .stat-grid-4 { grid-template-columns: repeat(4, 1fr); }
+
+  .stat-box {
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 12px;
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+  .stat-box.accent { border-color: var(--accent); background: rgba(74,144,217,0.1); }
+  .stat-box.gold   { border-color: var(--gold);   background: rgba(232,184,75,0.1); }
+  .stat-box.green  { border-color: var(--green);  background: rgba(39,174,96,0.1); }
+  .stat-box.light  { background: var(--offwhite); border-color: var(--border); }
+
+  .stat-label {
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    color: rgba(255,255,255,0.5);
+    font-weight: 600;
+  }
+  .stat-label.dark { color: var(--muted); }
+  .stat-val {
+    font-size: 36px;
+    font-weight: 800;
+    line-height: 1;
+    letter-spacing: -1px;
+  }
+  .stat-val.sm { font-size: 26px; letter-spacing: -0.5px; }
+  .stat-val.gold { color: var(--gold); }
+  .stat-val.accent { color: var(--accent); }
+  .stat-val.green { color: #4ade80; }
+  .stat-val.dark { color: var(--navy); }
+  .stat-note {
+    font-size: 12px;
+    color: rgba(255,255,255,0.4);
+    line-height: 1.4;
+  }
+  .stat-note.dark { color: var(--muted); }
+
+  /* ── BULLET POINTS ── */
+  .bullet-list { list-style: none; display: flex; flex-direction: column; gap: 14px; }
+  .bullet-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    font-size: 15px;
+    line-height: 1.5;
+    color: rgba(255,255,255,0.85);
+  }
+  .bullet-list li .dot-icon {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: var(--accent);
+    flex-shrink: 0;
+    margin-top: 7px;
+  }
+  .bullet-list li .dot-icon.gold { background: var(--gold); }
+  .bullet-list li strong { color: #fff; }
+  .bullet-list.dark li { color: var(--navy); }
+  .bullet-list.dark li strong { color: #0d0d1a; }
+  .bullet-list.dark li .dot-icon { background: var(--navy2); }
+
+  /* ── TWO COLUMN LAYOUT ── */
+  .col { flex: 1; display: flex; flex-direction: column; gap: 16px; }
+  .col-40 { flex: 0 0 40%; }
+  .col-60 { flex: 0 0 60%; }
+
+  /* ── TABLES ── */
+  .data-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 13.5px;
+  }
+  .data-table th {
+    background: rgba(255,255,255,0.08);
+    color: rgba(255,255,255,0.6);
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: 600;
+    padding: 10px 14px;
+    text-align: left;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+  }
+  .data-table td {
+    padding: 10px 14px;
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+    color: rgba(255,255,255,0.85);
+  }
+  .data-table tr:last-child td { border-bottom: none; }
+  .data-table .total td {
+    border-top: 1px solid rgba(255,255,255,0.2);
+    font-weight: 700;
+    color: #fff;
+    background: rgba(255,255,255,0.05);
+  }
+  .data-table .highlight td { color: var(--gold); font-weight: 700; }
+  .data-table.light th { background: var(--navy2); color: rgba(255,255,255,0.8); }
+  .data-table.light td { color: var(--navy); border-bottom-color: var(--border); }
+  .data-table.light tr:nth-child(even) td { background: var(--offwhite); }
+  .data-table.light .total td { color: var(--navy); background: #e8f0fe; border-top-color: var(--border); }
+  .data-table.light .highlight td { color: var(--navy2); }
+
+  /* ── PHASE TIMELINE ── */
+  .timeline { display: flex; gap: 0; }
+  .phase-block {
+    flex: 1;
+    padding: 18px 14px;
+    border-right: 2px solid rgba(255,255,255,0.1);
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+  .phase-block:last-child { border-right: none; }
+  .phase-label { font-size: 10px; text-transform: uppercase; letter-spacing: 1px; color: rgba(255,255,255,0.4); }
+  .phase-units { font-size: 24px; font-weight: 800; color: var(--gold); }
+  .phase-name { font-size: 12px; font-weight: 600; color: rgba(255,255,255,0.8); }
+  .phase-note { font-size: 11px; color: rgba(255,255,255,0.4); line-height: 1.4; }
+  .phase-badge {
+    display: inline-block;
+    font-size: 9px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    padding: 3px 8px;
+    border-radius: 3px;
+    font-weight: 700;
+    margin-top: 4px;
+    align-self: flex-start;
+  }
+  .phase-badge.gate { background: var(--accent); color: #fff; }
+  .phase-badge.self { background: rgba(39,174,96,0.2); color: #4ade80; border: 1px solid rgba(39,174,96,0.4); }
+  .phase-block.active-phase { background: rgba(74,144,217,0.08); border-left: 3px solid var(--accent); }
+
+  /* ── SCENARIO TABLE ── */
+  .scenario-row {
+    display: flex;
+    gap: 16px;
+  }
+  .scenario-col {
+    flex: 1;
+    border-radius: 10px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+  .scenario-col.bear { background: rgba(231,76,60,0.1); border: 1px solid rgba(231,76,60,0.25); }
+  .scenario-col.base { background: rgba(74,144,217,0.1); border: 1px solid rgba(74,144,217,0.35); }
+  .scenario-col.bull { background: rgba(39,174,96,0.1); border: 1px solid rgba(39,174,96,0.35); }
+  .scenario-label { font-size: 11px; text-transform: uppercase; letter-spacing: 1.5px; font-weight: 700; }
+  .scenario-label.bear { color: #f87171; }
+  .scenario-label.base { color: var(--accent); }
+  .scenario-label.bull { color: #4ade80; }
+  .scenario-metric { display: flex; justify-content: space-between; align-items: center; }
+  .scenario-metric .mk { font-size: 11px; color: rgba(255,255,255,0.5); }
+  .scenario-metric .mv { font-size: 14px; font-weight: 700; color: rgba(255,255,255,0.9); }
+  .scenario-roic { font-size: 28px; font-weight: 800; margin-top: 4px; }
+  .scenario-roic.bear { color: #f87171; }
+  .scenario-roic.base { color: var(--accent); }
+  .scenario-roic.bull { color: #4ade80; }
+
+  /* ── RISK GRID ── */
+  .risk-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+  .risk-item {
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 8px;
+    padding: 16px;
+  }
+  .risk-title { font-size: 13px; font-weight: 700; color: rgba(255,255,255,0.9); margin-bottom: 4px; }
+  .risk-mit { font-size: 12px; color: rgba(255,255,255,0.5); line-height: 1.5; }
+
+  /* ── CTA SLIDE ── */
+  .slide-cta {
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background: linear-gradient(135deg, #0d0d1a 0%, #1a1a2e 60%, #1e2d5a 100%);
+    padding: 60px;
+  }
+  .cta-eyebrow { font-size: 11px; text-transform: uppercase; letter-spacing: 4px; color: var(--gold); margin-bottom: 20px; }
+  .cta-title { font-size: 46px; font-weight: 800; line-height: 1.1; letter-spacing: -1px; margin-bottom: 12px; }
+  .cta-sub { font-size: 18px; color: rgba(255,255,255,0.55); margin-bottom: 48px; font-weight: 300; max-width: 560px; }
+  .cta-blocks { display: flex; gap: 20px; justify-content: center; flex-wrap: wrap; max-width: 800px; }
+  .cta-block {
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,255,255,0.12);
+    border-radius: 12px;
+    padding: 28px 32px;
+    min-width: 200px;
+    flex: 1;
+    max-width: 240px;
+  }
+  .cta-block .cv { font-size: 30px; font-weight: 800; color: var(--gold); margin-bottom: 6px; }
+  .cta-block .cl { font-size: 12px; color: rgba(255,255,255,0.5); text-transform: uppercase; letter-spacing: 1px; }
+  .cta-block .cd { font-size: 13px; color: rgba(255,255,255,0.7); margin-top: 8px; line-height: 1.5; }
+
+  .contact-row {
+    display: flex;
+    gap: 32px;
+    justify-content: center;
+    margin-top: 40px;
+    flex-wrap: wrap;
+  }
+  .contact-item { font-size: 14px; color: rgba(255,255,255,0.55); }
+  .contact-item strong { color: rgba(255,255,255,0.85); display: block; margin-bottom: 2px; }
+
+  /* ── SLIDE 2: OPPORTUNITY ── */
+  .opportunity-stat {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    padding: 20px 24px;
+    background: rgba(255,255,255,0.05);
+    border-left: 4px solid var(--gold);
+    border-radius: 0 8px 8px 0;
+  }
+  .opportunity-stat .os-val { font-size: 40px; font-weight: 800; color: var(--gold); line-height: 1; white-space: nowrap; }
+  .opportunity-stat .os-text { font-size: 14px; color: rgba(255,255,255,0.75); line-height: 1.5; }
+
+  /* ── WATERMARK ── */
+  .slide-num {
+    position: absolute;
+    bottom: 80px;
+    left: 64px;
+    font-size: 10px;
+    color: rgba(255,255,255,0.15);
+    letter-spacing: 2px;
+    text-transform: uppercase;
+  }
+  .slide-num.dark { color: rgba(0,0,0,0.12); }
+</style>
+</head>
+<body>
+<div class="deck" id="deck">
+
+  <!-- ══════════════════════════════════════════
+       SLIDE 1 — COVER
+  ══════════════════════════════════════════ -->
+  <div class="slide slide-cover active">
+    <div class="promoter-tag">Mr. VK Thomas</div>
+    <div class="confidential-tag">Confidential</div>
+    <div class="cover-eyebrow">Investor Presentation · March 2026</div>
+    <div class="cover-title">Nilambur<br><span>Senior Living</span></div>
+    <div class="cover-subtitle">A premium senior retirement community on 13 acres in Kerala — built for India's ageing generation and NRI families</div>
+    <div class="cover-meta">
+      <div class="cover-meta-item">
+        <div class="val">₹12 Cr</div>
+        <div class="lbl">Capital Sought</div>
+      </div>
+      <div class="cover-divider"></div>
+      <div class="cover-meta-item">
+        <div class="val">₹25 Cr</div>
+        <div class="lbl">Total Capital</div>
+      </div>
+      <div class="cover-divider"></div>
+      <div class="cover-meta-item">
+        <div class="val">6–10x</div>
+        <div class="lbl">Target ROIC</div>
+      </div>
+      <div class="cover-divider"></div>
+      <div class="cover-meta-item">
+        <div class="val">8 Yrs</div>
+        <div class="lbl">Value Timeline</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════════
+       SLIDE 2 — THE OPPORTUNITY
+  ══════════════════════════════════════════ -->
+  <div class="slide bg-navy2">
+    <div class="slide-header">
+      <div class="section-label">The Opportunity</div>
+      <div class="slide-title">India's senior living sector is<br>structurally underserved</div>
+      <div class="slide-rule gold"></div>
+    </div>
+    <div class="slide-body row">
+      <div class="col">
+        <div class="opportunity-stat">
+          <div class="os-val">340M</div>
+          <div class="os-text">Indians aged 60+ by 2050 — up from 140M today. Kerala leads with the highest elderly proportion of any Indian state.</div>
+        </div>
+        <div class="opportunity-stat">
+          <div class="os-val">&lt;1%</div>
+          <div class="os-text">Of elderly Indians in organised senior living communities. The vast majority rely on informal family care — a model that is breaking down with nuclear families and NRI migration.</div>
+        </div>
+        <div class="opportunity-stat">
+          <div class="os-val">2.4M</div>
+          <div class="os-text">Keralites in the Gulf and diaspora. NRI families increasingly need a trusted, structured solution for ageing parents who want to stay in Kerala.</div>
+        </div>
+      </div>
+      <div class="col">
+        <ul class="bullet-list">
+          <li><div class="dot-icon gold"></div><div><strong>No organised market in this geography.</strong> Premium senior living is concentrated in metros. Tier-2 Kerala — with its ageing demographic and NRI wealth — is entirely untapped.</div></li>
+          <li><div class="dot-icon gold"></div><div><strong>Willingness to pay is proven.</strong> NRI families already pay ₹30–60K/month for informal caregivers with no quality assurance. A structured community is a premium upgrade, not a stretch.</div></li>
+          <li><div class="dot-icon gold"></div><div><strong>Supply pipeline is near-zero.</strong> No planned comparable project in Nilambur or the wider Malappuram district over the next 5 years.</div></li>
+          <li><div class="dot-icon gold"></div><div><strong>First-mover advantage is real and durable.</strong> Senior living communities are self-referral networks — residents bring residents. Early entry locks in the demand flywheel.</div></li>
+        </ul>
+      </div>
+    </div>
+    <div class="slide-num">02 / 10</div>
+  </div>
+
+  <!-- ══════════════════════════════════════════
+       SLIDE 3 — THE PROJECT
+  ══════════════════════════════════════════ -->
+  <div class="slide bg-white">
+    <div class="slide-header">
+      <div class="section-label" style="color:var(--accent)">The Project</div>
+      <div class="slide-title light">What we are building</div>
+      <div class="slide-rule"></div>
+    </div>
+    <div class="slide-body row">
+      <div class="col col-60">
+        <table class="data-table light" style="font-size:13px">
+          <tr><th>Parameter</th><th>Detail</th></tr>
+          <tr><td>Location</td><td><strong>Nilambur, Kerala</strong> — 1hr from Calicut airport</td></tr>
+          <tr><td>Land</td><td>13 acres — sole ownership, VKT</td></tr>
+          <tr><td>Land value (in-kind)</td><td>₹13 Crores (₹1 Cr/acre)</td></tr>
+          <tr><td>Total units</td><td>200 — across 2 residential blocks</td></tr>
+          <tr><td>Model</td><td>Life-care: refundable deposit + monthly fee</td></tr>
+          <tr><td>Target resident</td><td>NRI parents, retirees aged 60–75</td></tr>
+          <tr><td>Phased timeline</td><td>5 operational years (Y1–Y5)</td></tr>
+          <tr class="total"><td>Full capacity revenue</td><td>₹12 Cr/year</td></tr>
+        </table>
+        <div style="font-size:12.5px; color:var(--muted); line-height:1.6; margin-top:4px;">
+          The community delivers <strong style="color:var(--navy)">fully integrated geriatric care</strong> — independent living, assisted care, medical monitoring, recreation, meals, and community management on one campus. Not a housing project. A <strong style="color:var(--navy)">life-care destination.</strong>
+        </div>
+      </div>
+      <div class="col">
+        <div style="display:flex;flex-direction:column;gap:12px;">
+          <div class="stat-box light">
+            <div class="stat-label dark">Zone: Common Amenities</div>
+            <div class="stat-val sm dark">3 acres</div>
+            <div class="stat-note dark">Medical centre, dining, recreation, wellness, gardens — scaled for all 200 units</div>
+          </div>
+          <div class="stat-box light">
+            <div class="stat-label dark">Zone: Residential Block 1</div>
+            <div class="stat-val sm dark">5 acres · 100 units</div>
+            <div class="stat-note dark">3 phases: 25 + 25 + 50 units across Years 1–3</div>
+          </div>
+          <div class="stat-box light">
+            <div class="stat-label dark">Zone: Residential Block 2</div>
+            <div class="stat-val sm dark">5 acres · 100 units</div>
+            <div class="stat-note dark">2 phases: 50 + 50 units in Years 4–5 — self-funded from Block 1 margins</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="slide-num dark">03 / 10</div>
+  </div>
+
+  <!-- ══════════════════════════════════════════
+       SLIDE 4 — BUSINESS MODEL
+  ══════════════════════════════════════════ -->
+  <div class="slide bg-navy">
+    <div class="slide-header">
+      <div class="section-label">Business Model</div>
+      <div class="slide-title">Two durable revenue streams +<br>a compounding flywheel</div>
+      <div class="slide-rule gold"></div>
+    </div>
+    <div class="slide-body row">
+      <div class="col">
+        <div class="stat-box accent">
+          <div class="stat-label">Revenue Stream 1 — Unit Deposits (One-Time)</div>
+          <div class="stat-val accent">₹50L / unit</div>
+          <div class="stat-note" style="margin-top:8px;">Resident pays a refundable membership deposit to occupy their unit. 80% returned on exit or death. 20% (₹10L) retained as non-refundable margin.</div>
+        </div>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:4px;">
+          <div class="stat-box" style="padding:16px">
+            <div class="stat-label">Dev cost / unit</div>
+            <div class="stat-val sm">₹37.5L</div>
+          </div>
+          <div class="stat-box green" style="padding:16px">
+            <div class="stat-label">Gross margin</div>
+            <div class="stat-val sm green">₹12.5L</div>
+            <div class="stat-note">25% margin</div>
+          </div>
+        </div>
+        <div class="stat-box gold" style="margin-top:4px">
+          <div class="stat-label">200-unit total margin</div>
+          <div class="stat-val gold">₹25 Crores</div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="stat-box" style="background:rgba(255,255,255,0.06);border-color:rgba(255,255,255,0.15)">
+          <div class="stat-label">Revenue Stream 2 — Monthly Care Fee (Recurring)</div>
+          <div class="stat-val">₹50K/month</div>
+          <div class="stat-note" style="margin-top:8px;">All-inclusive: meals, housekeeping, medical monitoring, security, utilities, admin. 80% cost / 20% margin.</div>
+        </div>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:4px;">
+          <div class="stat-box" style="padding:16px">
+            <div class="stat-label">Annual @ 200 units</div>
+            <div class="stat-val sm">₹12 Cr</div>
+          </div>
+          <div class="stat-box green" style="padding:16px">
+            <div class="stat-label">Op. margin</div>
+            <div class="stat-val sm green">₹2.4 Cr/yr</div>
+          </div>
+        </div>
+        <div class="stat-box" style="background:rgba(232,184,75,0.08);border-color:rgba(232,184,75,0.3);margin-top:4px">
+          <div class="stat-label" style="color:rgba(232,184,75,0.7)">The Flywheel — Unit Turnover</div>
+          <div style="font-size:13px;color:rgba(255,255,255,0.75);line-height:1.6;margin-top:6px;">When a resident exits, the unit re-lets at a <strong style="color:#e8b84b">20% premium</strong>. New deposit (₹60L) covers the refund (₹40L) via bank bridge. Community nets ₹20L per turnover — with no additional capital. Each cycle compounds.</div>
+        </div>
+      </div>
+    </div>
+    <div class="slide-num">04 / 10</div>
+  </div>
+
+  <!-- ══════════════════════════════════════════
+       SLIDE 5 — DEVELOPMENT PLAN
+  ══════════════════════════════════════════ -->
+  <div class="slide bg-dark">
+    <div class="slide-header">
+      <div class="section-label">Development Plan</div>
+      <div class="slide-title">Phased, gated, and capital-efficient</div>
+      <div class="slide-rule"></div>
+    </div>
+    <div class="slide-body">
+      <div class="timeline" style="background:rgba(255,255,255,0.03);border-radius:12px;border:1px solid rgba(255,255,255,0.08)">
+        <div class="phase-block">
+          <div class="phase-label">Year 0</div>
+          <div class="phase-units">—</div>
+          <div class="phase-name">Pre-Launch</div>
+          <div class="phase-note">Marketing, pre-sales, RERA prep, master planning</div>
+          <div class="phase-badge gate">Validation Gate</div>
+          <div style="font-size:10px;color:rgba(255,255,255,0.3);margin-top:6px;">Spend: ₹0.75 Cr only</div>
+        </div>
+        <div class="phase-block active-phase">
+          <div class="phase-label">Year 1</div>
+          <div class="phase-units">25</div>
+          <div class="phase-name">Phase 1 — Block 1</div>
+          <div class="phase-note">MVP infra + amenities. Construction begins only on sales confirmation.</div>
+          <div class="phase-badge gate">Project Proved</div>
+        </div>
+        <div class="phase-block">
+          <div class="phase-label">Year 2</div>
+          <div class="phase-units">25</div>
+          <div class="phase-name">Phase 2 — Block 1</div>
+          <div class="phase-note">Full amenities build. 50 units operating = operational breakeven</div>
+          <div class="phase-badge gate">Breakeven</div>
+        </div>
+        <div class="phase-block">
+          <div class="phase-label">Year 3</div>
+          <div class="phase-units">50</div>
+          <div class="phase-name">Phase 3 — Block 1</div>
+          <div class="phase-note">Block 1 complete. 100 units at year end. Strong cash position.</div>
+        </div>
+        <div class="phase-block">
+          <div class="phase-label">Year 4</div>
+          <div class="phase-units">50</div>
+          <div class="phase-name">Phase 4 — Block 2</div>
+          <div class="phase-note">Block 2 begins. Funded entirely from Block 1 margins.</div>
+          <div class="phase-badge self">Self-Funded</div>
+        </div>
+        <div class="phase-block">
+          <div class="phase-label">Year 5</div>
+          <div class="phase-units">50</div>
+          <div class="phase-name">Phase 5 — Block 2</div>
+          <div class="phase-note">200 units at full capacity. Terminal valuation event horizon.</div>
+          <div class="phase-badge self">Self-Funded</div>
+        </div>
+      </div>
+
+      <div class="stat-grid stat-grid-4" style="margin-top:8px">
+        <div class="stat-box" style="padding:18px">
+          <div class="stat-label">Max capital at risk (Y0 wipeout)</div>
+          <div class="stat-val sm accent">~₹6 Cr</div>
+          <div class="stat-note">~₹6 Cr undeployed and returnable</div>
+        </div>
+        <div class="stat-box" style="padding:18px">
+          <div class="stat-label">Closing cash — Year 2 (lowest)</div>
+          <div class="stat-val sm">₹7.8 Cr</div>
+          <div class="stat-note">Well above ₹2 Cr reserve minimum</div>
+        </div>
+        <div class="stat-box" style="padding:18px">
+          <div class="stat-label">Closing cash — Year 5</div>
+          <div class="stat-val sm green">₹25 Cr</div>
+          <div class="stat-note">Cash from operations + deposits</div>
+        </div>
+        <div class="stat-box gold" style="padding:18px">
+          <div class="stat-label">Project never cash-negative</div>
+          <div class="stat-val sm gold">✓</div>
+          <div class="stat-note">After capital is deployed</div>
+        </div>
+      </div>
+    </div>
+    <div class="slide-num">05 / 10</div>
+  </div>
+
+  <!-- ══════════════════════════════════════════
+       SLIDE 6 — FINANCIALS
+  ══════════════════════════════════════════ -->
+  <div class="slide bg-navy2">
+    <div class="slide-header">
+      <div class="section-label">Financial Model</div>
+      <div class="slide-title">Year-by-year cash flow — Base Case</div>
+      <div class="slide-rule gold"></div>
+    </div>
+    <div class="slide-body">
+      <table class="data-table" style="font-size:13px">
+        <tr>
+          <th>Line Item</th>
+          <th>Year 0</th>
+          <th>Year 1</th>
+          <th>Year 2</th>
+          <th>Year 3</th>
+          <th>Year 4</th>
+          <th>Year 5</th>
+          <th>Total</th>
+        </tr>
+        <tr>
+          <td>Deposits received</td>
+          <td>—</td><td>₹12.5 Cr</td><td>₹12.5 Cr</td><td>₹25 Cr</td><td>₹25 Cr</td><td>₹25 Cr</td><td>₹100 Cr</td>
+        </tr>
+        <tr>
+          <td>Unit construction cost</td>
+          <td>—</td><td style="color:#f87171">(₹9.4 Cr)</td><td style="color:#f87171">(₹9.4 Cr)</td><td style="color:#f87171">(₹18.75 Cr)</td><td style="color:#f87171">(₹18.75 Cr)</td><td style="color:#f87171">(₹18.75 Cr)</td><td style="color:#f87171">(₹75 Cr)</td>
+        </tr>
+        <tr class="highlight">
+          <td>Net unit margin</td>
+          <td>—</td><td>₹3.1 Cr</td><td>₹3.1 Cr</td><td>₹6.25 Cr</td><td>₹6.25 Cr</td><td>₹6.25 Cr</td><td>₹25 Cr</td>
+        </tr>
+        <tr>
+          <td>Infrastructure CapEx</td>
+          <td>—</td><td style="color:#f87171">(₹5 Cr)</td><td style="color:#f87171">(₹5 Cr)</td><td>—</td><td style="color:#f87171">(₹2.5 Cr)</td><td style="color:#f87171">(₹2.5 Cr)</td><td style="color:#f87171">(₹15 Cr)</td>
+        </tr>
+        <tr class="highlight">
+          <td>Operating margin</td>
+          <td>—</td><td>—</td><td>₹0.30 Cr</td><td>₹0.60 Cr</td><td>₹1.20 Cr</td><td>₹1.80 Cr</td><td>₹3.90 Cr</td>
+        </tr>
+        <tr>
+          <td>Pre-launch / other</td>
+          <td style="color:#f87171">(₹0.75 Cr)</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td style="color:#f87171">(₹0.75 Cr)</td>
+        </tr>
+        <tr class="total">
+          <td>Net cash flow (year)</td>
+          <td style="color:#f87171">(₹0.75 Cr)</td><td style="color:#f87171">(₹1.9 Cr)</td><td style="color:#f87171">(₹1.6 Cr)</td><td style="color:#4ade80">+₹6.85 Cr</td><td style="color:#4ade80">+₹4.95 Cr</td><td style="color:#4ade80">+₹5.55 Cr</td><td style="color:var(--gold)">₹13.1 Cr</td>
+        </tr>
+        <tr>
+          <td>Closing cash position</td>
+          <td>₹11.3 Cr</td><td>₹9.4 Cr</td><td style="color:var(--accent)">₹7.8 Cr ▼</td><td>₹14.7 Cr</td><td>₹19.6 Cr</td><td style="color:#4ade80">₹25.1 Cr</td><td>—</td>
+        </tr>
+      </table>
+      <div style="display:flex;gap:12px;margin-top:4px">
+        <div class="stat-box" style="flex:1;padding:16px">
+          <div class="stat-label">5-yr total margin (unit + ops)</div>
+          <div class="stat-val sm gold">₹28.9 Cr</div>
+        </div>
+        <div class="stat-box" style="flex:1;padding:16px">
+          <div class="stat-label">Lowest cash balance (Y2)</div>
+          <div class="stat-val sm accent">₹7.8 Cr</div>
+          <div class="stat-note">3.9× operating reserve minimum</div>
+        </div>
+        <div class="stat-box green" style="flex:1;padding:16px">
+          <div class="stat-label">Block 2 — funded from</div>
+          <div class="stat-val sm green">Block 1</div>
+          <div class="stat-note">No additional raise required</div>
+        </div>
+        <div class="stat-box" style="flex:1;padding:16px;background:rgba(255,255,255,0.04)">
+          <div class="stat-label">Refund liability at full cap.</div>
+          <div class="stat-val sm">₹80 Cr</div>
+          <div class="stat-note">Long-term, staggered — managed via bank bridge + lock-in</div>
+        </div>
+      </div>
+    </div>
+    <div class="slide-num">06 / 10</div>
+  </div>
+
+  <!-- ══════════════════════════════════════════
+       SLIDE 7 — CAPITAL STRUCTURE
+  ══════════════════════════════════════════ -->
+  <div class="slide bg-white">
+    <div class="slide-header">
+      <div class="section-label" style="color:var(--accent)">Capital Structure</div>
+      <div class="slide-title light">₹12 Cr sought · ₹25 Cr total capital</div>
+      <div class="slide-rule"></div>
+    </div>
+    <div class="slide-body row">
+      <div class="col col-40">
+        <table class="data-table light">
+          <tr><th>Source</th><th>Type</th><th>Amount</th></tr>
+          <tr><td>Land — VKT (in-kind)</td><td>Equity</td><td><strong>₹13 Cr</strong></td></tr>
+          <tr><td>External capital</td><td>Equity / TBD</td><td><strong>₹12 Cr</strong></td></tr>
+          <tr class="total"><td>Total capital</td><td></td><td><strong>₹25 Cr</strong></td></tr>
+        </table>
+        <div style="margin-top:16px">
+          <table class="data-table light" style="font-size:12.5px">
+            <tr><th colspan="2">Deployment of ₹12 Cr</th></tr>
+            <tr><td>Common Amenities (Y1 MVP + Y2 full)</td><td>₹5.00 Cr</td></tr>
+            <tr><td>Block 1 Infrastructure (Y1 + Y2)</td><td>₹5.00 Cr</td></tr>
+            <tr><td>Operating Reserve</td><td>₹2.00 Cr</td></tr>
+            <tr class="total"><td>Total</td><td>₹12.00 Cr</td></tr>
+          </table>
+        </div>
+        <div style="background:var(--offwhite);border-left:3px solid var(--accent);padding:12px 14px;border-radius:0 6px 6px 0;font-size:12.5px;color:var(--muted);line-height:1.6;margin-top:12px">
+          <strong style="color:var(--navy)">Gated deployment principle.</strong> Year 0 spend is capped at ₹0.75 Cr. Infrastructure commits only after Phase 1 sales are confirmed. Maximum pre-validation loss: ~₹6 Cr.
+        </div>
+      </div>
+      <div class="col">
+        <div style="background:var(--offwhite);border-radius:12px;padding:24px;height:100%;display:flex;flex-direction:column;gap:16px">
+          <div style="font-size:13px;font-weight:700;color:var(--navy);text-transform:uppercase;letter-spacing:1px">Entity Structure</div>
+          <ul class="bullet-list dark">
+            <li><div class="dot-icon"></div><div>Nothing incorporated yet — entity form to be determined with CA advice</div></li>
+            <li><div class="dot-icon"></div><div>Key considerations: deposit and margin tax treatment, promoter liability, resident governance</div></li>
+            <li><div class="dot-icon"></div><div>Promoter contribution of land via outright transfer or lease arrangement — to be advised</div></li>
+            <li><div class="dot-icon"></div><div>RERA registration planned per phase — adds buyer confidence and compliance structure</div></li>
+          </ul>
+          <div style="border-top:1px solid var(--border);padding-top:16px;margin-top:auto">
+            <div style="font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:1px;margin-bottom:8px">Investor protections (indicative)</div>
+            <ul class="bullet-list dark" style="gap:8px">
+              <li><div class="dot-icon"></div><div>Validation gate at end of Year 0 — go/no-go decision point</div></li>
+              <li><div class="dot-icon"></div><div>VKT backstop: willing to sell 2 acres (~₹2 Cr) to partially offset investor losses in total wipeout</div></li>
+              <li><div class="dot-icon"></div><div>Phased CapEx — no bulk commitment before sales are proven</div></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="slide-num dark">07 / 10</div>
+  </div>
+
+  <!-- ══════════════════════════════════════════
+       SLIDE 8 — RETURNS & VALUATION
+  ══════════════════════════════════════════ -->
+  <div class="slide bg-navy">
+    <div class="slide-header">
+      <div class="section-label">Returns</div>
+      <div class="slide-title">Post-development entity value:<br>₹156–260 Crores</div>
+      <div class="slide-rule gold"></div>
+    </div>
+    <div class="slide-body">
+      <div class="scenario-row">
+        <div class="scenario-col bear">
+          <div class="scenario-label bear">Bear</div>
+          <div class="scenario-roic bear">6.2x</div>
+          <div style="font-size:11px;color:rgba(255,255,255,0.4);margin-bottom:12px">on ₹25 Cr total capital</div>
+          <div class="scenario-metric"><span class="mk">Op. value (3× rev)</span><span class="mv">₹36 Cr</span></div>
+          <div class="scenario-metric"><span class="mk">RE value (₹60L/unit)</span><span class="mv">₹120 Cr</span></div>
+          <div class="scenario-metric" style="margin-top:6px;padding-top:6px;border-top:1px solid rgba(255,255,255,0.1)"><span class="mk" style="font-weight:700;color:rgba(255,255,255,0.7)">Total entity value</span><span class="mv" style="color:#f87171;font-size:18px">₹156 Cr</span></div>
+        </div>
+        <div class="scenario-col base">
+          <div class="scenario-label base">Base</div>
+          <div class="scenario-roic base">8.3x</div>
+          <div style="font-size:11px;color:rgba(255,255,255,0.4);margin-bottom:12px">on ₹25 Cr total capital</div>
+          <div class="scenario-metric"><span class="mk">Op. value (4× rev)</span><span class="mv">₹48 Cr</span></div>
+          <div class="scenario-metric"><span class="mk">RE value (₹80L/unit)</span><span class="mv">₹160 Cr</span></div>
+          <div class="scenario-metric" style="margin-top:6px;padding-top:6px;border-top:1px solid rgba(255,255,255,0.15)"><span class="mk" style="font-weight:700;color:rgba(255,255,255,0.7)">Total entity value</span><span class="mv" style="color:var(--accent);font-size:18px">₹208 Cr</span></div>
+        </div>
+        <div class="scenario-col bull">
+          <div class="scenario-label bull">Bull</div>
+          <div class="scenario-roic bull">10.4x</div>
+          <div style="font-size:11px;color:rgba(255,255,255,0.4);margin-bottom:12px">on ₹25 Cr total capital</div>
+          <div class="scenario-metric"><span class="mk">Op. value (5× rev)</span><span class="mv">₹60 Cr</span></div>
+          <div class="scenario-metric"><span class="mk">RE value (₹1 Cr/unit)</span><span class="mv">₹200 Cr</span></div>
+          <div class="scenario-metric" style="margin-top:6px;padding-top:6px;border-top:1px solid rgba(255,255,255,0.1)"><span class="mk" style="font-weight:700;color:rgba(255,255,255,0.7)">Total entity value</span><span class="mv" style="color:#4ade80;font-size:18px">₹260 Cr</span></div>
+        </div>
+      </div>
+
+      <div class="stat-grid stat-grid-4" style="margin-top:12px">
+        <div class="stat-box" style="padding:18px">
+          <div class="stat-label">Annual op. revenue at Y8+</div>
+          <div class="stat-val sm">₹12 Cr</div>
+          <div class="stat-note">200 units × ₹50K × 12</div>
+        </div>
+        <div class="stat-box" style="padding:18px">
+          <div class="stat-label">Revenue multiple applied</div>
+          <div class="stat-val sm">3–5×</div>
+          <div class="stat-note">Conservative. Listed Indian healthcare ops trade 5–10×</div>
+        </div>
+        <div class="stat-box" style="padding:18px">
+          <div class="stat-label">RE: current value/unit</div>
+          <div class="stat-val sm">₹60L</div>
+          <div class="stat-note">Bear case — no appreciation assumed</div>
+        </div>
+        <div class="stat-box gold" style="padding:18px">
+          <div class="stat-label">Plus: 5-yr cash margins</div>
+          <div class="stat-val sm gold">₹28.9 Cr</div>
+          <div class="stat-note">On top of terminal value. Not included in ROIC above.</div>
+        </div>
+      </div>
+    </div>
+    <div class="slide-num">08 / 10</div>
+  </div>
+
+  <!-- ══════════════════════════════════════════
+       SLIDE 9 — RISKS
+  ══════════════════════════════════════════ -->
+  <div class="slide bg-dark">
+    <div class="slide-header">
+      <div class="section-label">Risk & Mitigants</div>
+      <div class="slide-title">Downside is bounded, knowable, and time-limited</div>
+      <div class="slide-rule"></div>
+    </div>
+    <div class="slide-body row">
+      <div class="col col-40">
+        <div class="stat-box" style="padding:24px;margin-bottom:16px">
+          <div class="stat-label">Worst-case investor loss</div>
+          <div class="stat-val gold">~₹4 Cr</div>
+          <div class="stat-note" style="margin-top:8px;line-height:1.6">Total wipeout scenario (zero sales). Gross loss ~₹6 Cr, offset by VKT land sale (2 acres, ~₹2 Cr backstop). Decision is knowable by end of Year 1.</div>
+        </div>
+        <div class="stat-box accent" style="padding:24px">
+          <div class="stat-label">Validation gate</div>
+          <div class="stat-val sm">2 Years</div>
+          <div class="stat-note" style="margin-top:8px;line-height:1.6">The project's viability is provable within 24 months. Year 0 spend is only ₹0.75 Cr. Phase 1 construction begins only on sales confirmation. If Phase 1 doesn't validate — wind down.</div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="risk-grid">
+          <div class="risk-item">
+            <div class="risk-title">Phase 1 sales don't materialise</div>
+            <div class="risk-mit">Validation gate: max loss ~₹6 Cr (vs ₹12 Cr committed). ~₹6 Cr returnable. VKT backstop reduces net to ~₹4 Cr.</div>
+          </div>
+          <div class="risk-item">
+            <div class="risk-title">Slower-than-expected sales</div>
+            <div class="risk-mit">Each phase begins only after prior phase is substantially sold. No over-commitment.</div>
+          </div>
+          <div class="risk-item">
+            <div class="risk-title">Construction cost overruns</div>
+            <div class="risk-mit">Fixed-price contracts with reputable contractors. ₹2 Cr operating reserve as contingency buffer.</div>
+          </div>
+          <div class="risk-item">
+            <div class="risk-title">Deposit prices below model</div>
+            <div class="risk-mit">At ₹40L/unit (bear), margin is ₹10L — still positive. Project viable across full price range.</div>
+          </div>
+          <div class="risk-item">
+            <div class="risk-title">Refund liability concentration</div>
+            <div class="risk-mit">3-year lock-in delays first refund to Year 4+. Bank bridge + turnover premium self-fund all refunds.</div>
+          </div>
+          <div class="risk-item">
+            <div class="risk-title">Operational management</div>
+            <div class="risk-mit">Professional senior living management company to be engaged. Not an owner-operated project.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="slide-num">09 / 10</div>
+  </div>
+
+  <!-- ══════════════════════════════════════════
+       SLIDE 10 — THE ASK
+  ══════════════════════════════════════════ -->
+  <div class="slide slide-cta">
+    <div class="confidential-tag">Confidential</div>
+    <div class="cta-eyebrow">The Ask</div>
+    <div class="cta-title">₹12 Crores to build<br>Kerala's defining senior community</div>
+    <div class="cta-sub">Structure to be determined. Land contribution (₹13 Cr) and project execution by VKT. Capital partners participate in a business targeting ₹156–260 Cr entity value.</div>
+    <div class="cta-blocks">
+      <div class="cta-block">
+        <div class="cv">₹12 Cr</div>
+        <div class="cl">Capital Sought</div>
+        <div class="cd">Covers amenities, Block 1 infra, and operating reserve. Gated deployment.</div>
+      </div>
+      <div class="cta-block">
+        <div class="cv">6–10×</div>
+        <div class="cl">Target ROIC</div>
+        <div class="cd">On total ₹25 Cr capital base. Bear to bull range over 8 years.</div>
+      </div>
+      <div class="cta-block">
+        <div class="cv">₹4 Cr</div>
+        <div class="cl">Worst-Case Loss</div>
+        <div class="cd">After VKT backstop. Knowable within 24 months. Bounded downside.</div>
+      </div>
+      <div class="cta-block">
+        <div class="cv">Y0–Y1</div>
+        <div class="cl">Decision Window</div>
+        <div class="cd">Validation gate at end of Year 1. Proceed or wind down — clear and fast.</div>
+      </div>
+    </div>
+    <div class="contact-row">
+      <div class="contact-item"><strong>Promoter</strong>Mr. VK Thomas, Nilambur</div>
+      <div class="contact-item"><strong>Status</strong>Pre-incorporation — concept stage</div>
+      <div class="contact-item"><strong>Next step</strong>CA review in progress — structure TBD</div>
+      <div class="contact-item"><strong>Date</strong>March 2026</div>
+    </div>
+  </div>
+
+</div><!-- /deck -->
+
+<!-- Navigation -->
+<div class="nav">
+  <button id="prevBtn" onclick="changeSlide(-1)" disabled>&#8592;</button>
+  <span class="slide-counter" id="counter">1 / 10</span>
+  <button id="nextBtn" onclick="changeSlide(1)">&#8594;</button>
+</div>
+
+<div class="dots" id="dots"></div>
+
+<script>
+  const slides = document.querySelectorAll('.slide');
+  const total = slides.length;
+  let current = 0;
+
+  // Build dots
+  const dotsEl = document.getElementById('dots');
+  slides.forEach((_, i) => {
+    const d = document.createElement('div');
+    d.className = 'dot' + (i === 0 ? ' active' : '');
+    d.onclick = () => goTo(i);
+    dotsEl.appendChild(d);
+  });
+
+  function goTo(n) {
+    slides[current].classList.remove('active');
+    dotsEl.children[current].classList.remove('active');
+    current = Math.max(0, Math.min(n, total - 1));
+    slides[current].classList.add('active');
+    dotsEl.children[current].classList.add('active');
+    document.getElementById('counter').textContent = (current + 1) + ' / ' + total;
+    document.getElementById('prevBtn').disabled = current === 0;
+    document.getElementById('nextBtn').disabled = current === total - 1;
+  }
+
+  function changeSlide(dir) { goTo(current + dir); }
+
+  document.addEventListener('keydown', e => {
+    if (e.key === 'ArrowRight' || e.key === 'ArrowDown') changeSlide(1);
+    if (e.key === 'ArrowLeft'  || e.key === 'ArrowUp')   changeSlide(-1);
+  });
+
+  // Touch/swipe
+  let ts = 0;
+  document.addEventListener('touchstart', e => { ts = e.changedTouches[0].clientX; });
+  document.addEventListener('touchend',   e => {
+    const dx = ts - e.changedTouches[0].clientX;
+    if (Math.abs(dx) > 40) changeSlide(dx > 0 ? 1 : -1);
+  });
+</script>
+</body>
+</html>
