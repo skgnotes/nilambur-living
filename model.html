@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Financial Model — Nilambur Senior Living</title>
+<style>
+  :root {
+    --navy: #1a1a2e;
+    --navy2: #2c3e6e;
+    --accent: #4a90d9;
+    --border: #dde3f0;
+    --bg-alt: #f7f9fc;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+    font-size: 13px;
+    line-height: 1.5;
+    color: #1a1a1a;
+    background: #fff;
+  }
+  .site-header {
+    background: var(--navy);
+    color: #fff;
+    padding: 28px 32px;
+    border-bottom: 4px solid var(--accent);
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    justify-content: space-between;
+  }
+  .site-header h1 { font-size: 20px; font-weight: 700; color: #fff; }
+  .site-header .sub { font-size: 12px; color: #8899cc; margin-top: 4px; }
+  .back-link {
+    color: #8899cc;
+    text-decoration: none;
+    font-size: 13px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    white-space: nowrap;
+  }
+  .back-link:hover { color: #fff; }
+  .download-btn {
+    background: var(--accent);
+    color: #fff;
+    padding: 8px 16px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-size: 12px;
+    font-weight: 600;
+    white-space: nowrap;
+  }
+  .download-btn:hover { background: #3a7fc0; }
+  .sheet-tabs {
+    background: var(--navy2);
+    padding: 0 32px;
+    display: flex;
+    gap: 2px;
+    overflow-x: auto;
+    border-bottom: 1px solid var(--border);
+  }
+  .tab-btn {
+    background: transparent;
+    color: #aabbdd;
+    border: none;
+    padding: 12px 18px;
+    cursor: pointer;
+    font-size: 12.5px;
+    font-weight: 500;
+    border-bottom: 3px solid transparent;
+    transition: all 0.15s;
+    white-space: nowrap;
+    font-family: inherit;
+  }
+  .tab-btn:hover { color: #fff; background: rgba(255,255,255,0.05); }
+  .tab-btn.active { color: #fff; border-bottom-color: var(--accent); }
+  .sheet-container { padding: 24px 32px; overflow-x: auto; }
+  table { border-collapse: collapse; min-width: 600px; font-size: 12.5px; }
+  th, td { padding: 7px 12px; border: 1px solid var(--border); vertical-align: middle; }
+  td { min-width: 80px; max-width: 320px; }
+  th.navy, td.navy { background: var(--navy); color: #fff; font-weight: 700; }
+  td.navy2, th.navy2 { background: var(--navy2); color: #fff; font-weight: 600; }
+  td.yellow { background: #fffde7; }
+  td.ltblue { background: #e8f0fe; }
+  td.gray { background: #f0f0f0; }
+  .bold { font-weight: 700; }
+  .center { text-align: center; }
+  .right { text-align: right; }
+  tr.spacer td { height: 8px; background: transparent; border: none; padding: 0; }
+  tr:hover td:not(.navy):not(.navy2) { background: #eef2fc; }
+  .sheet-note {
+    font-size: 11px;
+    color: #888;
+    margin-top: 16px;
+    font-style: italic;
+  }
+  @media print {
+    .site-header, .sheet-tabs { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  }
+</style>
+</head>
+<body>
+<div class="site-header">
+  <div>
+    <h1>Financial Model — Nilambur Senior Living</h1>
+    <div class="sub">Detailed projections across 6 sheets · Yellow cells = inputs · Blue = calculated</div>
+  </div>
+  <div style="display:flex;gap:12px;align-items:center">
+    <a href="index.html" class="back-link">← Back to Proposal</a>
+    <a href="Nilambur_Senior_Living_Financial_Model.xlsx" download class="download-btn">↓ Download .xlsx</a>
+  </div>
+</div>
+<div class="sheet-tabs">
+  <button class="tab-btn active" onclick="showSheet(this, 'Dashboard')">Dashboard</button>
+  <button class="tab-btn" onclick="showSheet(this, 'Assumptions')">Assumptions</button>
+  <button class="tab-btn" onclick="showSheet(this, 'Cash-Flow-Model')">Cash Flow Model</button>
+  <button class="tab-btn" onclick="showSheet(this, 'PL-Summary')">P&amp;L Summary</button>
+  <button class="tab-btn" onclick="showSheet(this, 'Sensitivity-Analysis')">Sensitivity Analysis</button>
+  <button class="tab-btn" onclick="showSheet(this, 'Turnover-Flywheel')">Turnover Flywheel</button>
+</div>
+
+<div class="sheet-container">
+<div class="sheet-pane" id="pane-Dashboard">
+<table id="sheet-Dashboard">
+<tbody>
+<tr><th class="bold navy2 center">NILAMBUR SENIOR RETIREMENT LIVING COMMUNITY</th><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+<tr class="spacer"><td colspan="8"></td></tr>
+<tr><td class="center">FINANCIAL MODEL — EXECUTIVE SUMMARY DASHBOARD    |    March 2026    |    Promoter: Mr. VK Thomas</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+<tr class="spacer"><td colspan="8"></td></tr>
+<tr><td></td><td class="center">Total Units</td><td></td><td class="center">Total Capital (₹ Cr)</td><td></td><td class="center">External Capital Required (₹ Cr)</td><td></td><td></td></tr>
+<tr><td></td><td class="bold center">200</td><td></td><td class="bold center">25</td><td></td><td class="bold center">12</td><td></td><td></td></tr>
+<tr class="spacer"><td colspan="8"></td></tr>
+<tr><td></td><th class="navy2 center">Deposit / Unit (₹ Lakhs)</th><td></td><th class="navy2 center">Monthly Fee / Unit (₹)</th><td></td><th class="navy2 center">Development Margin / Unit (₹ Lakhs)</th><td></td><td></td></tr>
+<tr><td></td><th class="bold navy2 center">50</th><td></td><th class="bold navy2 center">50000</th><td></td><th class="bold navy2 center">12.5</th><td></td><td></td></tr>
+<tr class="spacer"><td colspan="8"></td></tr>
+<tr><td></td><th class="navy2 center">Total Dev. Margin 5-Yr (₹ Cr)</th><td></td><th class="navy2 center">5-Yr Operating Margin (₹ Cr)</th><td></td><th class="navy2 center">Terminal ROIC — Base (entity/capital)</th><td></td><td></td></tr>
+<tr><td></td><th class="bold navy2 center">25</th><td></td><th class="bold navy2 center">3.9</th><td></td><th class="bold navy2 center">8.32</th><td></td><td></td></tr>
+<tr class="spacer"><td colspan="8"></td></tr>
+<tr><td></td><th class="navy2 center">Min. Cash Balance (₹ Cr)</th><td></td><th class="navy2 center">Peak Refund Liability (₹ Cr)</th><td></td><th class="navy2 center">Operational Breakeven</th><td></td><td></td></tr>
+<tr><td></td><th class="bold navy2 center">7.8</th><td></td><th class="bold navy2 center">80</th><td></td><th class="bold navy2 center">Phase 2 (50 units)</th><td></td><td></td></tr>
+<tr class="spacer"><td colspan="8"></td></tr>
+<tr><td class="bold">  YEAR-BY-YEAR FINANCIAL SUMMARY</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+<tr><th class="bold navy2 center">Metric</th><th class="bold navy2 center">Year 0</th><th class="bold navy2 center">Year 1</th><th class="bold navy2 center">Year 2</th><th class="bold navy2 center">Year 3</th><th class="bold navy2 center">Year 4</th><th class="bold navy2 center">Year 5</th><th class="bold navy2 center">TOTAL</th></tr>
+<tr><td>Units delivered in year</td><td class="right">0</td><td class="right">25</td><td class="right">25</td><td class="right">50</td><td class="right">50</td><td class="right">50</td><td class="right">200</td></tr>
+<tr><td class="ltblue">Units earning monthly fees</td><td class="ltblue right">0</td><td class="ltblue right">0</td><td class="ltblue right">25</td><td class="ltblue right">50</td><td class="ltblue right">100</td><td class="ltblue right">150</td><td class="ltblue right">—</td></tr>
+<tr><td>Gross deposit receipts (₹ Cr)</td><td class="right">0</td><td class="right">12.5</td><td class="right">12.5</td><td class="right">25</td><td class="right">25</td><td class="right">25</td><td class="right">100</td></tr>
+<tr><td class="ltblue">Net unit development margin (₹ Cr)</td><td class="ltblue right">0</td><td class="ltblue right">3.125</td><td class="ltblue right">3.125</td><td class="ltblue right">6.25</td><td class="ltblue right">6.25</td><td class="ltblue right">6.25</td><td class="ltblue right">25</td></tr>
+<tr><td>Total CapEx (₹ Cr)</td><td class="right">0</td><td class="right">-5</td><td class="right">-5</td><td class="right">0</td><td class="right">-2.5</td><td class="right">-2.5</td><td class="right">-15</td></tr>
+<tr><td class="ltblue">Annual operating revenue (₹ Cr)</td><td class="ltblue right">0</td><td class="ltblue right">0</td><td class="ltblue right">1.5</td><td class="ltblue right">3</td><td class="ltblue right">6</td><td class="ltblue right">9</td><td class="ltblue right">19.5</td></tr>
+<tr><td>Operating margin (₹ Cr)</td><td class="right">0</td><td class="right">0</td><td class="right">0.3</td><td class="right">0.6</td><td class="right">1.2</td><td class="right">1.8</td><td class="right">3.9</td></tr>
+<tr><td class="ltblue">Net cash flow — year (₹ Cr)</td><td class="ltblue right">-0.75</td><td class="ltblue right">-1.875</td><td class="ltblue right">-1.575</td><td class="ltblue right">6.85</td><td class="ltblue right">4.95</td><td class="ltblue right">5.55</td><td class="ltblue right">13.15</td></tr>
+<tr><td>Closing cash balance (₹ Cr)</td><td class="right">11.25</td><td class="right">9.375</td><td class="right">7.8</td><td class="right">14.65</td><td class="right">19.6</td><td class="right">25.15</td><td class="right">25.15</td></tr>
+<tr class="spacer"><td colspan="8"></td></tr>
+<tr class="spacer"><td colspan="8"></td></tr>
+<tr><td class="bold">  KEY VALIDATION MILESTONES</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+<tr><td class="bold ltblue center">Year 0</td><td>Pre-launch only — marketing, pre-sales, design. Max loss if wound down: ~₹0.75 Cr</td><td></td><td></td><td></td><td>Target: 25 unit commitments</td><td></td><td></td></tr>
+<tr><td class="bold ltblue center">Year 1 ⚑</td><td class="bold">VALIDATION GATE 1: 25 units sold &amp; handed over → project proved, concept risk retired</td><td></td><td></td><td></td><td>Max loss zero offtake ~₹6 Cr | ~₹6 Cr returnable</td><td></td><td></td></tr>
+<tr><td class="bold ltblue center">Year 2 ⚑</td><td class="bold">VALIDATION GATE 2: 50 units operating → operational breakeven achieved</td><td></td><td></td><td></td><td>Self-sustaining beyond this point</td><td></td><td></td></tr>
+<tr><td class="bold ltblue center">Year 5</td><td>Full Block 1 complete. Block 2 self-funded. 200 units → ₹12 Cr annual op. revenue</td><td></td><td></td><td></td><td>Peak refund liability at ₹80 Cr — managed via turnover bridge</td><td></td><td></td></tr>
+<tr><td class="bold ltblue center">Year 8+</td><td>Post-development entity value ₹156–260 Cr | ROIC 6.2x–10.4x vs ₹25 Cr capital</td><td></td><td></td><td></td><td>Refund flywheel as primary cash engine</td><td></td><td></td></tr>
+<tr class="spacer"><td colspan="8"></td></tr>
+<tr><td class="ltblue center">For CA review only — projections based on stated assumptions — not audited | Nilambur Senior Living, March 2026</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+</tbody>
+</table>
+</div>
+<div class="sheet-pane" id="pane-Assumptions" style="display:none">
+<table id="sheet-Assumptions">
+<tbody>
+<tr><th class="bold navy2 center">NILAMBUR SENIOR LIVING — KEY ASSUMPTIONS</th><td></td><td></td><td></td><td></td><td></td></tr>
+<tr><td class="ltblue center">All values in ₹ Crores unless stated | Blue = Input | Black = Formula | Source: Project Proposal, March 2026</td><td></td><td></td><td></td><td></td><td></td></tr>
+<tr><td class="bold">Legend:</td><td>● Blue = Hardcoded Input</td><td>● Black = Formula</td><td>● Green = Cross-sheet</td><td></td><td></td></tr>
+<tr class="spacer"><td colspan="6"></td></tr>
+<tr><td class="bold">A. PROJECT OVERVIEW</td><td></td><td></td><td></td><td></td><td></td></tr>
+<tr><td class="bold center">Parameter</td><td class="bold center">Value</td><td class="bold center">Conservative</td><td class="bold center">Base Case</td><td class="bold center">Optimistic</td><td class="bold center">Notes</td></tr>
+<tr><td>Total residential units</td><td class="right">200</td><td></td><td></td><td></td><td>Source: Project Proposal, Sec 5</td></tr>
+<tr><td>Total land area (acres)</td><td class="right">13</td><td></td><td></td><td></td><td>Source: Project Proposal, Sec 5</td></tr>
+<tr><td>Land value (₹ Cr)</td><td class="right">13</td><td></td><td></td><td></td><td>₹1 Cr/acre — Source: Promoter estimate</td></tr>
+<tr><td>Development timeline (years)</td><td class="right">5</td><td></td><td></td><td></td><td>Year 1–5 phased construction</td></tr>
+<tr><td>Number of phases</td><td class="right">5</td><td></td><td></td><td></td><td>B1: 25+25+50 | B2: 50+50</td></tr>
+<tr class="spacer"><td colspan="6"></td></tr>
+<tr><td class="bold">B. UNIT DEPOSIT ECONOMICS</td><td></td><td></td><td></td><td></td><td></td></tr>
+<tr><td class="bold center">Parameter</td><td class="bold center">Base Case</td><td class="bold center">Conservative</td><td class="bold center">Base Case</td><td class="bold center">Optimistic</td><td class="bold center">Notes</td></tr>
+<tr><td>Deposit per unit (₹ Lakhs)</td><td class="right">50</td><td class="right">40</td><td class="right">50</td><td class="right">60</td><td>Source: Project Proposal, Sec 6</td></tr>
+<tr><td>Refundable portion (%)</td><td class="right">0.8</td><td class="right">0.8</td><td class="right">0.8</td><td class="right">0.8</td><td>80% returned on exit or death</td></tr>
+<tr><td>Non-refundable margin (%)</td><td class="right">0.2</td><td></td><td></td><td></td><td>Development / membership premium</td></tr>
+<tr><td>Development cost per unit (₹ Lakhs)</td><td class="right">37.5</td><td class="right">30</td><td class="right">37.5</td><td class="right">45</td><td>Construction + fit-out + infra share</td></tr>
+<tr><td>Gross margin per unit (₹ Lakhs)</td><td class="right">12.5</td><td class="right">10</td><td class="right">12.5</td><td class="right">15</td><td>Key profit driver per unit</td></tr>
+<tr><td>Gross margin % per unit</td><td class="right">0.25</td><td class="right">0.25</td><td class="right">0.25</td><td class="right">0.25</td><td></td></tr>
+<tr><td>Minimum lock-in period (years)</td><td class="right">3</td><td></td><td></td><td></td><td>No refund obligations before Year 4</td></tr>
+<tr><td>Membership appreciation per turnover cycle (%)</td><td class="right">0.2</td><td></td><td></td><td></td><td>Conservative appreciation assumption</td></tr>
+<tr class="spacer"><td colspan="6"></td></tr>
+<tr><td class="bold">C. OPERATIONAL ASSUMPTIONS</td><td></td><td></td><td></td><td></td><td></td></tr>
+<tr><td class="bold center">Parameter</td><td class="bold center">Value</td><td class="bold center"></td><td class="bold center"></td><td class="bold center"></td><td class="bold center">Notes</td></tr>
+<tr><td>Monthly fee per unit (₹)</td><td class="right">50000</td><td></td><td></td><td></td><td>All-inclusive: meals, housekeeping, medical, security</td></tr>
+<tr><td>Operating cost ratio (%)</td><td class="right">0.8</td><td></td><td></td><td></td><td>Food 40%, Staff 30%, Utilities 5%, Mgmt 5%</td></tr>
+<tr><td>Operating margin ratio (%)</td><td class="right">0.2</td><td></td><td></td><td></td><td></td></tr>
+<tr><td>Operating margin per unit/month (₹)</td><td class="right">10000</td><td></td><td></td><td></td><td></td></tr>
+<tr><td>Annual operating margin per unit (₹ Lakhs)</td><td class="right">1.2</td><td></td><td></td><td></td><td></td></tr>
+<tr><td>Occupancy assumption (base)</td><td class="right">1</td><td></td><td></td><td></td><td>All units assumed fully occupied per phase</td></tr>
+<tr class="spacer"><td colspan="6"></td></tr>
+<tr><td class="bold">D. CAPITAL STRUCTURE ASSUMPTIONS</td><td></td><td></td><td></td><td></td><td></td></tr>
+<tr><td class="bold center">Parameter</td><td class="bold center">Value</td><td class="bold center"></td><td class="bold center"></td><td class="bold center"></td><td class="bold center">Notes</td></tr>
+<tr><td>Land value (₹ Cr)</td><td class="right">13</td><td></td><td></td><td></td><td>₹1 Cr/acre × 13 acres — promoter in-kind equity</td></tr>
+<tr><td>External capital required (₹ Cr)</td><td class="right">12</td><td></td><td></td><td></td><td>Cash capital — structure TBD</td></tr>
+<tr><td class="bold">Total capital (₹ Cr)</td><td class="bold right">25</td><td></td><td></td><td></td><td></td></tr>
+<tr><td>Pre-launch spend (Year 0) (₹ Cr)</td><td class="right">0.75</td><td></td><td></td><td></td><td>Marketing ₹0.50Cr + Design ₹0.25Cr</td></tr>
+<tr><td>Common amenities total cost (₹ Cr)</td><td class="right">5</td><td></td><td></td><td></td><td>₹2.5Cr MVP (Y1) + ₹2.5Cr full build (Y2)</td></tr>
+<tr><td>Block 1 infrastructure total cost (₹ Cr)</td><td class="right">5</td><td></td><td></td><td></td><td>₹2.5Cr (Y1) + ₹2.5Cr (Y2)</td></tr>
+<tr><td>Block 2 infrastructure total cost (₹ Cr)</td><td class="right">5</td><td></td><td></td><td></td><td>₹2.5Cr (Y4) + ₹2.5Cr (Y5) — self-funded from B1 margins</td></tr>
+<tr><td>Operating reserve (₹ Cr)</td><td class="right">2</td><td></td><td></td><td></td><td>Held as liquidity buffer, capital-funded</td></tr>
+<tr><td class="bold">Total infrastructure CapEx (₹ Cr)</td><td class="bold right">15</td><td></td><td></td><td></td><td></td></tr>
+<tr><td>Depreciation life (years)</td><td class="right">20</td><td></td><td></td><td></td><td>Straight-line on CapEx — subject to CA advice</td></tr>
+<tr><td>Annual depreciation (₹ Cr)</td><td class="right">0.75</td><td></td><td></td><td></td><td></td></tr>
+<tr><td>Discount rate (for NPV)</td><td class="right">0.12</td><td></td><td></td><td></td><td>Conservative equity hurdle rate</td></tr>
+<tr class="spacer"><td colspan="6"></td></tr>
+<tr><td class="bold">E. PHASE PLAN — UNITS PER PHASE</td><td></td><td></td><td></td><td></td><td></td></tr>
+<tr><td class="bold center">Phase</td><td class="bold center">Block</td><td class="bold center">Units</td><td class="bold center">Year</td><td class="bold center">Cumulative Units</td><td class="bold center">Milestone</td></tr>
+<tr><td>Pre-launch</td><td class="center">—</td><td class="right">0</td><td class="right">0</td><td class="right">0</td><td>25 units committed → trigger Phase 1 construction</td></tr>
+<tr><td>Phase 1</td><td class="center">Block 1</td><td class="right">25</td><td class="right">1</td><td class="right">25</td><td>End Y1: 25 units handed over → project proved</td></tr>
+<tr><td>Phase 2</td><td class="center">Block 1</td><td class="right">25</td><td class="right">2</td><td class="right">50</td><td>End Y2: 50 units → operational breakeven</td></tr>
+<tr><td>Phase 3</td><td class="center">Block 1</td><td class="right">50</td><td class="right">3</td><td class="right">100</td><td>End Y3: 100 units operating</td></tr>
+<tr><td>Phase 4</td><td class="center">Block 2</td><td class="right">50</td><td class="right">4</td><td class="right">150</td><td>End Y4: 150 units operating</td></tr>
+<tr><td>Phase 5</td><td class="center">Block 2</td><td class="right">50</td><td class="right">5</td><td class="right">200</td><td>End Y5: 200 units — full capacity</td></tr>
+<tr><td class="bold">TOTAL UNITS</td><td></td><td class="bold right">200</td><td></td><td></td><td></td></tr>
+</tbody>
+</table>
+</div>
+<div class="sheet-pane" id="pane-Cash-Flow-Model" style="display:none">
+<table id="sheet-Cash-Flow-Model">
+<tbody>
+<tr><th class="bold navy2 center">NILAMBUR SENIOR LIVING — YEAR-WISE CASH FLOW MODEL</th><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+<tr><td class="ltblue center">All values in ₹ Crores | Base Case | Green = Assumptions link | Black = Formula</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+<tr class="spacer"><td colspan="8"></td></tr>
+<tr><td class="bold">Item</td><td class="bold center">Year 0
+(Pre-launch)</td><td class="bold center">Year 1</td><td class="bold center">Year 2</td><td class="bold center">Year 3</td><td class="bold center">Year 4</td><td class="bold center">Year 5</td><td class="bold center">TOTAL</td></tr>
+<tr><td class="bold">1. CAPITAL FLOWS</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+<tr><td>External capital raised (₹ Cr)</td><td class="right">12</td><td class="right">0</td><td class="right">0</td><td class="right">0</td><td class="right">0</td><td class="right">0</td><td class="right">12</td></tr>
+<tr><td>Land — promoter in-kind equity (₹ Cr)</td><td class="right">13</td><td class="right">0</td><td class="right">0</td><td class="right">0</td><td class="right">0</td><td class="right">0</td><td class="right">13</td></tr>
+<tr><td class="bold">Total capital</td><td class="bold right">25</td><td class="bold right">0</td><td class="bold right">0</td><td class="bold right">0</td><td class="bold right">0</td><td class="bold right">0</td><td class="bold right">25</td></tr>
+<tr class="spacer"><td colspan="8"></td></tr>
+<tr><td class="bold">2. UNIT DEPOSIT RECEIPTS &amp; DEVELOPMENT MARGINS</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+<tr><td>Units delivered in year</td><td class="right">0</td><td class="right">25</td><td class="right">25</td><td class="right">50</td><td class="right">50</td><td class="right">50</td><td class="bold right">200</td></tr>
+<tr><td>Deposit per unit (₹ Lakhs)</td><td class="right">50</td><td class="right">50</td><td class="right">50</td><td class="right">50</td><td class="right">50</td><td class="right">50</td><td class="right">50</td></tr>
+<tr><td>Gross deposit receipts (₹ Cr)</td><td class="right">0</td><td class="right">12.5</td><td class="right">12.5</td><td class="right">25</td><td class="right">25</td><td class="right">25</td><td class="bold right">100</td></tr>
+<tr><td>Unit construction cost (₹ Cr)</td><td class="right">0</td><td class="right">-9.375</td><td class="right">-9.375</td><td class="right">-18.75</td><td class="right">-18.75</td><td class="right">-18.75</td><td class="bold right">-75</td></tr>
+<tr><td class="bold gray">Net unit development margin (₹ Cr)</td><td class="bold gray right">0</td><td class="bold gray right">3.125</td><td class="bold gray right">3.125</td><td class="bold gray right">6.25</td><td class="bold gray right">6.25</td><td class="bold gray right">6.25</td><td class="bold gray right">25</td></tr>
+<tr class="spacer"><td colspan="8"></td></tr>
+<tr><td class="bold">3. INFRASTRUCTURE CAPITAL EXPENDITURE</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+<tr><td>Common amenities — MVP (Year 1)</td><td class="right">0</td><td class="right">-2.5</td><td class="right">0</td><td class="right">0</td><td class="right">0</td><td class="right">0</td><td class="right">-2.5</td></tr>
+<tr><td>Common amenities — full build (Year 2)</td><td class="right">0</td><td class="right">0</td><td class="right">-2.5</td><td class="right">0</td><td class="right">0</td><td class="right">0</td><td class="right">-2.5</td></tr>
+<tr><td>Block 1 infrastructure Phase 1 (Year 1)</td><td class="right">0</td><td class="right">-2.5</td><td class="right">0</td><td class="right">0</td><td class="right">0</td><td class="right">0</td><td class="right">-2.5</td></tr>
+<tr><td>Block 1 infrastructure Phase 2 (Year 2)</td><td class="right">0</td><td class="right">0</td><td class="right">-2.5</td><td class="right">0</td><td class="right">0</td><td class="right">0</td><td class="right">-2.5</td></tr>
+<tr><td>Block 2 infrastructure Phase 1 (Year 4) — self-funded</td><td class="right">0</td><td class="right">0</td><td class="right">0</td><td class="right">0</td><td class="right">-2.5</td><td class="right">0</td><td class="right">-2.5</td></tr>
+<tr><td>Block 2 infrastructure Phase 2 (Year 5) — self-funded</td><td class="right">0</td><td class="right">0</td><td class="right">0</td><td class="right">0</td><td class="right">0</td><td class="right">-2.5</td><td class="right">-2.5</td></tr>
+<tr><td class="bold gray">Total CapEx (₹ Cr)</td><td class="bold gray right">0</td><td class="bold gray right">-5</td><td class="bold gray right">-5</td><td class="bold gray right">0</td><td class="bold gray right">-2.5</td><td class="bold gray right">-2.5</td><td class="bold gray right">-15</td></tr>
+<tr class="spacer"><td colspan="8"></td></tr>
+<tr><td class="bold">4. OPERATING REVENUE &amp; MARGINS</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+<tr><td>Units earning monthly fees</td><td class="right">0</td><td class="right">0</td><td class="right">25</td><td class="right">50</td><td class="right">100</td><td class="right">150</td><td class="center">—</td></tr>
+<tr><td>Annual operating revenue (₹ Cr)</td><td class="right">0</td><td class="right">0</td><td class="right">1.5</td><td class="right">3</td><td class="right">6</td><td class="right">9</td><td class="bold right">19.5</td></tr>
+<tr><td>Operating costs (₹ Cr)</td><td class="right">0</td><td class="right">0</td><td class="right">-1.2</td><td class="right">-2.4</td><td class="right">-4.8</td><td class="right">-7.2</td><td class="bold right">-15.6</td></tr>
+<tr><td class="bold gray">Operating margin (₹ Cr)</td><td class="bold gray right">0</td><td class="bold gray right">0</td><td class="bold gray right">0.3</td><td class="bold gray right">0.6</td><td class="bold gray right">1.2</td><td class="bold gray right">1.8</td><td class="bold gray right">3.9</td></tr>
+<tr class="spacer"><td colspan="8"></td></tr>
+<tr><td class="bold">5. PRE-LAUNCH COSTS</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+<tr><td>Pre-launch spend — Year 0 (₹ Cr)</td><td class="right">-0.75</td><td class="right">0</td><td class="right">0</td><td class="right">0</td><td class="right">0</td><td class="right">0</td><td class="right">-0.75</td></tr>
+<tr class="spacer"><td colspan="8"></td></tr>
+<tr><td class="bold">6. NET CASH FLOW SUMMARY</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+<tr><th class="bold navy2">NET CASH FLOW — year (₹ Cr)</th><th class="bold navy2 right">-0.75</th><th class="bold navy2 right">-1.875</th><th class="bold navy2 right">-1.575</th><th class="bold navy2 right">6.85</th><th class="bold navy2 right">4.95</th><th class="bold navy2 right">5.55</th><th class="bold navy2 right">13.15</th></tr>
+<tr class="spacer"><td colspan="8"></td></tr>
+<tr><td class="bold">7. CUMULATIVE CASH POSITION</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+<tr><td>Opening cash (₹ Cr)</td><td class="right">12</td><td class="right">11.25</td><td class="right">9.375</td><td class="right">7.8</td><td class="right">14.65</td><td class="right">19.6</td><td class="center">—</td></tr>
+<tr><td class="bold">Closing cash (₹ Cr)</td><td class="bold right">11.25</td><td class="bold right">9.375</td><td class="bold right">7.8</td><td class="bold right">14.65</td><td class="bold right">19.6</td><td class="bold right">25.15</td><td class="bold right">25.15</td></tr>
+<tr><td>Minimum cash balance across all years</td><td></td><td></td><td></td><td></td><td></td><td></td><td class="bold yellow right">7.8</td></tr>
+<tr><td>Operating reserve threshold (₹ Cr)</td><td></td><td></td><td></td><td></td><td></td><td></td><td class="right">2</td></tr>
+</tbody>
+</table>
+</div>
+<div class="sheet-pane" id="pane-PL-Summary" style="display:none">
+<table id="sheet-PL-Summary">
+<tbody>
+<tr><th class="bold navy2 center">NILAMBUR SENIOR LIVING — CONSOLIDATED P&amp;L SUMMARY</th><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+<tr><td class="ltblue center">All values in ₹ Crores | Figures pull from Cash Flow Model sheet</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+<tr class="spacer"><td colspan="8"></td></tr>
+<tr><td class="bold">Item</td><td class="bold center">Year 1</td><td class="bold center">Year 2</td><td class="bold center">Year 3</td><td class="bold center">Year 4</td><td class="bold center">Year 5</td><td class="bold center">TOTAL</td><td></td></tr>
+<tr><td class="bold">REVENUE</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+<tr><td>Unit deposit receipts (₹ Cr)</td><td class="right">12.5</td><td class="right">12.5</td><td class="right">25</td><td class="right">25</td><td class="right">25</td><td></td><td class="bold right">100</td></tr>
+<tr><td>Operating revenue (₹ Cr)</td><td class="right">0</td><td class="right">1.5</td><td class="right">3</td><td class="right">6</td><td class="right">9</td><td></td><td class="bold right">19.5</td></tr>
+<tr><td class="bold gray">TOTAL REVENUE (₹ Cr)</td><td class="bold gray right">12.5</td><td class="bold gray right">14</td><td class="bold gray right">28</td><td class="bold gray right">31</td><td class="bold gray right">34</td><td></td><td class="bold gray right">119.5</td></tr>
+<tr class="spacer"><td colspan="8"></td></tr>
+<tr><td class="bold">COSTS</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+<tr><td>Unit construction costs (₹ Cr)</td><td class="right">-9.375</td><td class="right">-9.375</td><td class="right">-18.75</td><td class="right">-18.75</td><td class="right">-18.75</td><td></td><td class="bold right">-75</td></tr>
+<tr><td>Operating costs (₹ Cr)</td><td class="right">0</td><td class="right">-1.2</td><td class="right">-2.4</td><td class="right">-4.8</td><td class="right">-7.2</td><td></td><td class="bold right">-15.6</td></tr>
+<tr><td>Infrastructure CapEx (₹ Cr)</td><td class="right">-5</td><td class="right">-5</td><td class="right">0</td><td class="right">-2.5</td><td class="right">-2.5</td><td></td><td class="bold right">-15</td></tr>
+<tr><td class="bold gray">TOTAL COSTS (₹ Cr)</td><td class="bold gray right">-14.375</td><td class="bold gray right">-15.575</td><td class="bold gray right">-21.15</td><td class="bold gray right">-26.05</td><td class="bold gray right">-28.45</td><td></td><td class="bold gray right">-105.6</td></tr>
+<tr class="spacer"><td colspan="8"></td></tr>
+<tr><td class="bold">MARGIN ANALYSIS</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+<tr><td>Unit development margin (₹ Cr)</td><td class="right">3.125</td><td class="right">3.125</td><td class="right">6.25</td><td class="right">6.25</td><td class="right">6.25</td><td></td><td class="bold right">25</td></tr>
+<tr><td>Operating margin (₹ Cr)</td><td class="right">0</td><td class="right">0.3</td><td class="right">0.6</td><td class="right">1.2</td><td class="right">1.8</td><td></td><td class="bold right">3.9</td></tr>
+<tr><td class="bold gray">TOTAL MARGIN (₹ Cr)</td><td class="bold gray right">3.125</td><td class="bold gray right">3.425</td><td class="bold gray right">6.85</td><td class="bold gray right">7.45</td><td class="bold gray right">8.05</td><td></td><td class="bold gray right">28.9</td></tr>
+<tr><td>Depreciation on CapEx (₹ Cr)</td><td class="right">-0.75</td><td class="right">-0.75</td><td class="right">-0.75</td><td class="right">-0.75</td><td class="right">-0.75</td><td></td><td class="right">-3.75</td></tr>
+<tr><th class="bold navy2">EBITDA (approx.) (₹ Cr)</th><th class="bold navy2 right">3.875</th><th class="bold navy2 right">4.175</th><th class="bold navy2 right">7.6</th><th class="bold navy2 right">8.2</th><th class="bold navy2 right">8.8</th><td></td><th class="bold navy2 right">32.65</th></tr>
+<tr class="spacer"><td colspan="8"></td></tr>
+<tr><td class="bold">MARGIN RATIOS</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+<tr><td>Unit margin % of deposit revenue</td><td class="right">1</td><td class="right">1</td><td class="right">1</td><td class="right">1</td><td class="right">1</td><td></td><td></td></tr>
+<tr><td>Operating margin %</td><td class="right">-</td><td class="right">0.2</td><td class="right">0.2</td><td class="right">0.2</td><td class="right">0.2</td><td></td><td></td></tr>
+<tr><td>Net cash flow (year) (₹ Cr)</td><td class="right">-1.875</td><td class="right">-1.575</td><td class="right">6.85</td><td class="right">4.95</td><td class="right">5.55</td><td></td><td class="bold right">13.9</td></tr>
+</tbody>
+</table>
+</div>
+<div class="sheet-pane" id="pane-Sensitivity-Analysis" style="display:none">
+<table id="sheet-Sensitivity-Analysis">
+<tbody>
+<tr><th class="bold navy2 center">NILAMBUR SENIOR LIVING — SENSITIVITY ANALYSIS</th><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+<tr><td class="ltblue center">Standalone scenario calculations | Blue = Input | All values ₹ Crores</td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+<tr class="spacer"><td colspan="7"></td></tr>
+<tr><td class="bold">A. UNIT ECONOMICS — SCENARIO ANALYSIS (200 units)</td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+<tr><td class="bold center">Metric</td><td class="bold center">Bear Case</td><td class="bold center"></td><td class="bold center">Base Case</td><td class="bold center"></td><td class="bold center">Optimistic</td><td class="bold center"></td></tr>
+<tr><td class="bold ltblue center"></td><td class="bold ltblue center">₹/unit</td><td class="bold ltblue center">200-unit total</td><td class="bold ltblue center">₹/unit</td><td class="bold ltblue center">200-unit total</td><td class="bold ltblue center">₹/unit</td><td class="bold ltblue center">200-unit total</td></tr>
+<tr><td>Deposit per unit (₹ Lakhs)</td><td class="right">40</td><td class="right">80</td><td class="right">50</td><td class="right">100</td><td class="right">60</td><td class="right">120</td></tr>
+<tr><td>Development cost per unit (₹ Lakhs)</td><td class="right">30</td><td class="right">60</td><td class="right">37.5</td><td class="right">75</td><td class="right">45</td><td class="right">90</td></tr>
+<tr><td>Gross margin per unit (₹ Lakhs)</td><td class="right">10</td><td class="right">20</td><td class="right">12.5</td><td class="right">25</td><td class="right">15</td><td class="right">30</td></tr>
+<tr><td>Gross margin %</td><td class="right">0.25</td><td></td><td class="right">0.25</td><td></td><td class="right">0.25</td><td></td></tr>
+<tr><td>Total deposit receipts (₹ Cr)</td><td></td><td class="right">80</td><td></td><td class="right">100</td><td></td><td class="right">120</td></tr>
+<tr><td>Total development margin (₹ Cr)</td><td></td><td class="bold gray right">20</td><td></td><td class="bold gray right">25</td><td></td><td class="bold gray right">30</td></tr>
+<tr class="spacer"><td colspan="7"></td></tr>
+<tr><td class="bold">B. OPERATING SENSITIVITY (full capacity, 200 units)</td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+<tr><td class="bold center">Metric</td><td class="bold center">Bear (80% occ)</td><td class="bold center"></td><td class="bold center">Base (100% occ)</td><td class="bold center"></td><td class="bold center">Bull (100%+fee uplift)</td><td class="bold center"></td></tr>
+<tr><td>Occupancy rate</td><td class="right">0.8</td><td></td><td class="right">1</td><td></td><td class="right">1</td><td></td></tr>
+<tr><td>Monthly fee per unit (₹ Lakhs)</td><td class="right">0.5</td><td></td><td class="right">0.5</td><td></td><td class="right">0.6</td><td></td></tr>
+<tr><td>Units paying fees</td><td class="right">160</td><td></td><td class="right">200</td><td></td><td class="right">200</td><td></td></tr>
+<tr><td>Annual operating revenue (₹ Cr)</td><td class="right">9.6</td><td></td><td class="right">12</td><td></td><td class="right">14.4</td><td></td></tr>
+<tr><td>Operating costs (₹ Cr, at ₹40K/unit fixed)</td><td class="right">-7.68</td><td></td><td class="right">-9.6</td><td></td><td class="right">-9.6</td><td></td></tr>
+<tr><td>Annual operating margin (₹ Cr)</td><td class="bold gray right">1.92</td><td></td><td class="bold gray right">2.4</td><td></td><td class="bold gray right">4.8</td><td></td></tr>
+<tr><td>Operating margin %</td><td class="right">0.2</td><td></td><td class="right">0.2</td><td></td><td class="right">0.3333</td><td></td></tr>
+<tr class="spacer"><td colspan="7"></td></tr>
+<tr><td class="bold">C. TOTAL PROJECT MARGIN — 5-YEAR SENSITIVITY</td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+<tr><td class="bold center">Metric</td><td class="bold center">Bear</td><td class="bold center"></td><td class="bold center">Base</td><td class="bold center"></td><td class="bold center">Bull</td><td class="bold center"></td></tr>
+<tr><td>Unit development margin — 200 units (₹ Cr)</td><td class="right">20</td><td></td><td class="right">25</td><td></td><td class="right">30</td><td></td></tr>
+<tr><td>Cumulative operating margin Yr2–5 (₹ Cr)</td><td class="right">3.12</td><td></td><td class="right">3.9</td><td></td><td class="right">7.8</td><td></td></tr>
+<tr><td>TOTAL 5-YEAR MARGIN (₹ Cr)</td><td class="bold gray right">23.12</td><td></td><td class="bold gray right">28.9</td><td></td><td class="bold gray right">37.8</td><td></td></tr>
+<tr><td>Total capital invested (₹ Cr)</td><td class="right">25</td><td></td><td class="right">25</td><td></td><td class="right">25</td><td></td></tr>
+<tr><td>Cash ROIC (5-year margin / capital invested)</td><td class="bold yellow right">0.9248</td><td></td><td class="bold yellow right">1.156</td><td></td><td class="bold yellow right">1.512</td><td></td></tr>
+<tr class="spacer"><td colspan="7"></td></tr>
+<tr><td class="bold">D. REFUND LIABILITY BUILD-UP</td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+<tr><td class="bold center">Year-end</td><td class="bold center">Cumul. units</td><td class="bold center">Total deposits</td><td class="bold center">Refundable (80%)</td><td class="bold center">Non-refundable (20%)</td><td class="bold center">Refund as % of capital</td><td class="bold center"></td></tr>
+<tr><td>Year 1</td><td class="right">25</td><td class="right">12.5</td><td class="right">10</td><td class="right">2.5</td><td class="right">0.4</td><td></td></tr>
+<tr><td>Year 2</td><td class="right">50</td><td class="right">25</td><td class="right">20</td><td class="right">5</td><td class="right">0.8</td><td></td></tr>
+<tr><td>Year 3</td><td class="right">100</td><td class="right">50</td><td class="right">40</td><td class="right">10</td><td class="right">1.6</td><td></td></tr>
+<tr><td>Year 4</td><td class="right">150</td><td class="right">75</td><td class="right">60</td><td class="right">15</td><td class="right">2.4</td><td></td></tr>
+<tr><td>Year 5</td><td class="right">200</td><td class="right">100</td><td class="bold gray right">80</td><td class="right">20</td><td class="right">3.2</td><td></td></tr>
+<tr class="spacer"><td colspan="7"></td></tr>
+<tr><td class="bold">E. VALUATION SUMMARY (Post-Development, Year 8+)</td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+<tr><td class="bold center">Component</td><td class="bold center">Conservative</td><td class="bold center">Base</td><td class="bold center">Optimistic</td><td class="bold center">Notes</td><td class="bold center"></td><td class="bold center"></td></tr>
+<tr><td>Annual operating revenue at full capacity (₹ Cr)</td><td class="right">12</td><td class="right">12</td><td class="right">12</td><td></td><td></td><td></td></tr>
+<tr><td>Revenue multiple applied</td><td class="right">3</td><td class="right">4</td><td class="right">5</td><td>Listed senior living 5x–10x; conservative 3x–5x</td><td></td><td></td></tr>
+<tr><td>Operating business value (₹ Cr)</td><td class="right">36</td><td class="right">48</td><td class="right">60</td><td></td><td></td><td></td></tr>
+<tr><td>Unit value at completion (₹ Lakhs)</td><td class="right">60</td><td class="right">80</td><td class="right">100</td><td></td><td></td><td></td></tr>
+<tr><td>Real estate value — 200 units (₹ Cr)</td><td class="right">120</td><td class="right">160</td><td class="right">200</td><td></td><td></td><td></td></tr>
+<tr><th class="bold navy2">TOTAL ENTITY VALUE (₹ Cr)</th><th class="bold navy2 right">156</th><th class="bold navy2 right">208</th><th class="bold navy2 right">260</th><td></td><td></td><td></td></tr>
+<tr><td class="bold">ROIC (entity value / capital invested)</td><td class="bold yellow right">6.24</td><td class="bold yellow right">8.32</td><td class="bold yellow right">10.4</td><td></td><td></td><td></td></tr>
+</tbody>
+</table>
+</div>
+<div class="sheet-pane" id="pane-Turnover-Flywheel" style="display:none">
+<table id="sheet-Turnover-Flywheel">
+<tbody>
+<tr><th class="bold navy2 center">NILAMBUR SENIOR LIVING — UNIT TURNOVER FLYWHEEL ANALYSIS</th><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+<tr><td class="ltblue center">Models the re-letting cycle as resident cohort turns over. Blue = Input | Appreciation links to Assumptions</td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+<tr class="spacer"><td colspan="7"></td></tr>
+<tr><td class="bold">A. TURNOVER CYCLE ECONOMICS (per unit, illustrative)</td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+<tr><td class="bold center">Metric</td><td class="bold center">Generation 1</td><td class="bold center">Generation 2</td><td class="bold center">Generation 3</td><td class="bold center">Generation 4</td><td class="bold center">Generation 5</td><td class="bold center"></td></tr>
+<tr><td>Starting membership price (₹ Lakhs)</td><td class="right">50</td><td class="right">60</td><td class="right">72</td><td class="right">86.4</td><td class="right">103.68</td><td>Appreciation = Assumptions B17</td></tr>
+<tr><td>Refund paid to exiting resident (80%) (₹ Lakhs)</td><td class="right">40</td><td class="right">48</td><td class="right">57.6</td><td class="right">69.12</td><td class="right">82.944</td><td></td></tr>
+<tr><td>New membership received (next gen) (₹ Lakhs)</td><td class="right">72</td><td class="right">86.4</td><td class="right">103.68</td><td class="right">124.416</td><td class="right">124.416</td><td></td></tr>
+<tr><td class="bold gray">Net cash surplus per turnover (₹ Lakhs)</td><td class="bold gray right">32</td><td class="bold gray right">38.4</td><td class="bold gray right">46.08</td><td class="bold gray right">55.296</td><td class="bold gray right">41.472</td><td></td></tr>
+<tr><td>Margin retained (non-refundable 20%) (₹ Lakhs)</td><td class="right">14.4</td><td class="right">17.28</td><td class="right">20.736</td><td class="right">24.8832</td><td class="right">24.8832</td><td></td></tr>
+<tr><td>Bank bridge loan required (standard exit) (₹ Lakhs)</td><td class="right">40</td><td class="right">48</td><td class="right">57.6</td><td class="right">69.12</td><td class="right">82.944</td><td></td></tr>
+<tr class="spacer"><td colspan="7"></td></tr>
+<tr><td class="bold">B. STANDARD EXIT vs REFERRAL EXIT COMPARISON (Generation 1)</td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+<tr><td class="bold center">Metric</td><td class="bold center">Standard Exit</td><td class="bold center">Referral Exit</td><td class="bold center">Difference</td><td class="bold center"></td><td class="bold center"></td><td class="bold center"></td></tr>
+<tr><td>Outgoing resident refund (₹ Lakhs)</td><td class="right">40</td><td class="right">50</td><td class="right">10</td><td></td><td></td><td></td></tr>
+<tr><td>New membership collected (₹ Lakhs)</td><td class="right">60</td><td class="right">60</td><td class="right">0</td><td></td><td></td><td></td></tr>
+<tr><td>Bank bridge loan (₹ Lakhs)</td><td class="right">40</td><td class="right">0</td><td class="right">-40</td><td></td><td></td><td></td></tr>
+<tr><td class="bold gray">Community net retention (₹ Lakhs)</td><td class="bold gray right">20</td><td class="bold gray right">10</td><td class="right">-10</td><td>Community retains less on referral exit, gains in speed &amp; no financing</td><td></td><td></td></tr>
+<tr><td>Outgoing resident gain (₹ Lakhs)</td><td class="right">0</td><td class="right">10</td><td class="right">10</td><td></td><td></td><td></td></tr>
+</tbody>
+</table>
+</div>
+
+  <p class="sheet-note">Note: Formulas shown as computed values. For full formula linkage, use the Google Sheet linked in the proposal or download the .xlsx file above.</p>
+</div>
+
+<script>
+function showSheet(btn, id) {
+  document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+  document.querySelectorAll('.sheet-pane').forEach(p => p.style.display = 'none');
+  btn.classList.add('active');
+  document.getElementById('pane-' + id).style.display = '';
+}
+</script>
+</body>
+</html>
