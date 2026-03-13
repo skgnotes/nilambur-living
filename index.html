@@ -1,0 +1,2352 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nilambur Senior Living — Detailed Project Proposal & Financial Model</title>
+<style>
+  :root {
+    --navy: #1a1a2e;
+    --navy2: #2c3e6e;
+    --accent: #4a90d9;
+    --text: #1a1a1a;
+    --muted: #555;
+    --border: #dde3f0;
+    --bg-alt: #f7f9fc;
+    --bg-yellow: #fffde7;
+    --green: #e8f5e9;
+    --red: #fce8e8;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+    font-size: 15px;
+    line-height: 1.7;
+    color: var(--text);
+    background: #fff;
+  }
+
+  /* HEADER */
+  .site-header {
+    background: var(--navy);
+    color: #fff;
+    padding: 48px 40px 36px;
+    border-bottom: 4px solid var(--accent);
+  }
+  .site-header .label {
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: #8899cc;
+    margin-bottom: 12px;
+  }
+  .site-header h1 {
+    font-size: 30px;
+    font-weight: 700;
+    line-height: 1.2;
+    margin-bottom: 8px;
+    color: #fff;
+    border: none;
+  }
+  .site-header .subtitle {
+    font-size: 15px;
+    color: #aabbdd;
+    margin-bottom: 24px;
+  }
+  .meta-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 24px;
+    margin-top: 20px;
+  }
+  .meta-item {
+    font-size: 12px;
+    color: #8899cc;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+  .meta-item strong {
+    display: block;
+    color: #ccd8f0;
+    font-size: 13px;
+    margin-top: 2px;
+    text-transform: none;
+    letter-spacing: 0;
+  }
+
+  /* LAYOUT */
+  .container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 24px;
+    display: grid;
+    grid-template-columns: 240px 1fr;
+    gap: 0;
+    align-items: start;
+  }
+  @media (max-width: 860px) {
+    .container { grid-template-columns: 1fr; }
+    .toc-sidebar { display: none; }
+  }
+
+  /* TOC */
+  .toc-sidebar {
+    position: sticky;
+    top: 24px;
+    padding: 32px 20px 32px 0;
+    border-right: 1px solid var(--border);
+    min-height: 100vh;
+  }
+  .toc-sidebar h3 {
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: var(--muted);
+    margin-bottom: 12px;
+    font-weight: 600;
+  }
+  .toc-sidebar a {
+    display: block;
+    font-size: 12.5px;
+    color: var(--muted);
+    text-decoration: none;
+    padding: 3px 0;
+    border-left: 2px solid transparent;
+    padding-left: 8px;
+    transition: all 0.15s;
+    line-height: 1.4;
+  }
+  .toc-sidebar a:hover {
+    color: var(--accent);
+    border-left-color: var(--accent);
+  }
+  .toc-sidebar a.sub { padding-left: 18px; font-size: 11.5px; }
+
+  /* MAIN CONTENT */
+  .main-content {
+    padding: 40px 0 80px 48px;
+  }
+
+  /* TYPOGRAPHY */
+  h1, h2, h3, h4 {
+    color: var(--navy);
+    font-weight: 700;
+    line-height: 1.3;
+    margin-top: 0;
+  }
+  .main-content h1 {
+    font-size: 26px;
+    border-bottom: 3px solid var(--navy);
+    padding-bottom: 10px;
+    margin-bottom: 24px;
+    margin-top: 48px;
+  }
+  .main-content h1:first-child { margin-top: 0; }
+  .main-content h2 {
+    font-size: 20px;
+    border-bottom: 2px solid var(--border);
+    padding-bottom: 8px;
+    margin-bottom: 20px;
+    margin-top: 40px;
+    color: var(--navy2);
+  }
+  .main-content h3 {
+    font-size: 16px;
+    color: var(--navy);
+    margin-bottom: 14px;
+    margin-top: 30px;
+  }
+  .main-content h4 {
+    font-size: 14px;
+    color: var(--muted);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 10px;
+    margin-top: 24px;
+  }
+  p { margin-bottom: 16px; }
+  strong { color: var(--navy); }
+
+  /* NOTE BLOCK */
+  blockquote {
+    border-left: 4px solid var(--accent);
+    padding: 14px 18px;
+    background: var(--bg-alt);
+    border-radius: 0 6px 6px 0;
+    margin: 20px 0;
+    font-size: 14px;
+    color: var(--muted);
+  }
+  blockquote p { margin-bottom: 8px; }
+  blockquote p:last-child { margin-bottom: 0; }
+  blockquote strong { color: var(--navy2); }
+
+  /* TABLES */
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    font-size: 13.5px;
+    border-radius: 6px;
+    overflow: hidden;
+  }
+  th {
+    background: var(--navy);
+    color: #fff;
+    font-weight: 600;
+    padding: 10px 14px;
+    text-align: left;
+    font-size: 12.5px;
+    letter-spacing: 0.3px;
+  }
+  td {
+    padding: 9px 14px;
+    border-bottom: 1px solid var(--border);
+    vertical-align: top;
+  }
+  tr:nth-child(even) td { background: var(--bg-alt); }
+  tr:hover td { background: #eef2fc; }
+  td strong { color: var(--navy); font-weight: 700; }
+
+  /* LISTS */
+  ul, ol {
+    padding-left: 24px;
+    margin-bottom: 16px;
+  }
+  li { margin-bottom: 6px; }
+
+  /* HORIZONTAL RULE */
+  hr {
+    border: none;
+    border-top: 1px solid var(--border);
+    margin: 40px 0;
+  }
+
+  /* CONFIDENTIAL BANNER */
+  .confidential-banner {
+    background: var(--bg-yellow);
+    border: 1px solid #f0d060;
+    border-radius: 6px;
+    padding: 12px 18px;
+    font-size: 13px;
+    color: #7a6000;
+    margin-bottom: 32px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  /* HIGHLIGHT BOXES */
+  .highlight-box {
+    background: var(--bg-alt);
+    border-left: 4px solid var(--accent);
+    border-radius: 0 8px 8px 0;
+    padding: 20px 24px;
+    margin: 24px 0;
+  }
+
+  /* SECTION NUMBER */
+  .section-num {
+    display: inline-block;
+    background: var(--navy);
+    color: #fff;
+    font-size: 11px;
+    font-weight: 700;
+    padding: 2px 8px;
+    border-radius: 3px;
+    margin-right: 8px;
+    vertical-align: middle;
+  }
+
+  /* FOOTER */
+  .site-footer {
+    background: var(--bg-alt);
+    border-top: 1px solid var(--border);
+    padding: 24px 40px;
+    font-size: 12px;
+    color: var(--muted);
+    text-align: center;
+    margin-top: 60px;
+  }
+
+  /* PRINT */
+  @media print {
+    .toc-sidebar { display: none; }
+    .container { display: block; }
+    .main-content { padding: 0; }
+    .site-header { padding: 24px; }
+    table { font-size: 11px; }
+    h1, h2 { break-after: avoid; }
+  }
+
+  /* CODE */
+  code {
+    background: var(--bg-alt);
+    border: 1px solid var(--border);
+    border-radius: 3px;
+    padding: 1px 5px;
+    font-size: 13px;
+    font-family: 'SF Mono', 'Fira Code', monospace;
+  }
+</style>
+</head>
+<body>
+
+<div class="site-header">
+  <div class="label">Project Proposal & Financial Model</div>
+  <h1>Nilambur Senior Living Community</h1>
+  <div class="subtitle">Senior Retirement Living — Nilambur, Kerala</div>
+  <div class="meta-row">
+    <div class="meta-item">Promoter<strong>Mr. VK Thomas</strong></div>
+    <div class="meta-item">Prepared<strong>Internal — For CA Review</strong></div>
+    <div class="meta-item">Date<strong>March 2026</strong></div>
+    <div class="meta-item">Status<strong>Draft — Confidential</strong></div>
+  </div>
+</div>
+
+<div class="container">
+  <aside class="toc-sidebar">
+    <h3>Contents</h3>
+    <a href="#note-to-ca">1. Note to CA</a>
+    <a href="#executive-summary">2. Executive Summary</a>
+    <a href="#vision">3. Project Vision</a>
+    <a href="#macro">4. Macro Context</a>
+    <a href="#site">5. Site & Structure</a>
+    <a href="#revenue">6. Revenue Model</a>
+    <a href="#capital">7. Capital Structure</a>
+    <a href="#financial">8. Financial Model</a>
+    <a class="sub" href="#assumptions">8A. Assumptions</a>
+    <a class="sub" href="#phases">8B. Phase Plan</a>
+    <a class="sub" href="#revenue-build">8C. Revenue Build</a>
+    <a class="sub" href="#costs">8D. Cost Structure</a>
+    <a class="sub" href="#cashflow">8E. Cash Flow</a>
+    <a class="sub" href="#pl">8F. P&amp;L</a>
+    <a class="sub" href="#refund">8G. Refund Liability</a>
+    <a class="sub" href="#sensitivity">8H. Sensitivity</a>
+    <a href="#valuation">9. Value Creation</a>
+    <a href="#risks">10. Risk Factors</a>
+    <a href="#ca-review">11. CA Review Areas</a>
+    <a href="#appendix">Appendix</a>
+  </aside>
+
+  <main class="main-content">
+    <div class="confidential-banner">
+      ⚠️ &nbsp;<strong>Confidential — Internal Working Paper.</strong> Prepared for CA review and advisory. Not for distribution.
+    </div>
+<h1>SENIOR RETIREMENT LIVING COMMUNITY — NILAMBUR</h1>
+<h2>Detailed Project Proposal &amp; Financial Model</h2>
+<p><strong>Promoter:</strong> Mr. VK Thomas
+<strong>Prepared by:</strong> Internal — For CA Review &amp; Advisory
+<strong>Date:</strong> March 2026
+<strong>Status:</strong> Draft — Confidential</p>
+<hr>
+<h2>TABLE OF CONTENTS</h2>
+<ol>
+<li>Note to CA</li>
+<li>Executive Summary</li>
+<li>Project Vision &amp; Concept</li>
+<li>Macro Context — Senior Living in India</li>
+<li>Site Overview &amp; Project Structure</li>
+<li>Business &amp; Revenue Model</li>
+<li>Capital Structure &amp; Funding Plan</li>
+<li>Financial Model<ul>
+<li>8A. Key Assumptions</li>
+<li>8B. Phase-wise Development Plan</li>
+<li>8C. Revenue Build-up</li>
+<li>8D. Cost Structure</li>
+<li>8E. Year-wise Cash Flow Projections</li>
+<li>8F. Consolidated P&amp;L Summary</li>
+<li>8G. Refund Liability Analysis</li>
+<li>8H. Sensitivity Analysis</li>
+</ul>
+</li>
+<li>Value Creation Summary</li>
+<li>Risk Factors &amp; Mitigants</li>
+<li>Areas for CA Review &amp; Advisory</li>
+</ol>
+<hr>
+<h2 id="note-to-ca">1. Note to CA</h2>
+<p>This document sets out a concept I have been developing for a Senior Retirement Living Community on my property in Nilambur, Kerala.</p>
+<p>It covers the project concept, revenue and business model, capital requirements, and a detailed financial model built on a set of stated assumptions. The numbers are my best current estimate of how the project could work — they are not audited and I hold them loosely. The model is meant to be a starting point for a proper conversation, not a final plan.</p>
+<p>I am sharing this with you for two things:</p>
+<p><strong>1. Sanity check on the numbers.</strong> Does the financial model hold together? Are there structural flaws or gaps in how I&#39;m thinking about the economics.</p>
+<p><strong>2. Open-ended advisory input.</strong> Beyond the numbers, what would you flag as concerns, blind spots, or things I should be thinking about before I go further with this? I have not incorporated anything yet, and no commitments have been made. There is still time to shape the structure properly.</p>
+<p>I am not looking for a formal report — honest input is more valuable at this stage.</p>
+<p>— VKT</p>
+<hr>
+<h2 id="executive-summary">2. Executive Summary</h2>
+<p>Mr. VK Thomas proposes to develop a premium Senior Retirement Living Community on a 13-acre property in Nilambur, Kerala. The project will deliver 200 fully serviced residential units across two blocks, supported by a shared amenities zone, over a development period of 5–6 years from first sales.</p>
+<p>The project is structured around two early validation milestones that de-risk capital deployment progressively: sale and handover of the initial 25 units (end of Year 1), and operational breakeven at 50 units (end of Year 2). Capital and infrastructure are deployed on a minimum viable basis until Phase 1 sales are validated — the point at which the project concept is considered proved and the bulk of execution risk is retired. The total timeline is 6 calendar years: Year 0 (pre-sales) followed by 5 years of phased construction (Years 1–5).</p>
+<p>The project operates on a <strong>refundable deposit model</strong> — residents pay a one-time deposit of ₹40–60 Lakhs to occupy a unit (80% of which is returned upon exit or death) and a recurring monthly fee of ₹50,000 to cover all operational services.</p>
+<p><strong>Capital summary:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Component</th>
+<th>Amount</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Land (promoter contribution, in-kind)</td>
+<td>₹13.00 Cr</td>
+</tr>
+<tr>
+<td>External capital required (structure TBD)</td>
+<td>₹12.00 Cr</td>
+</tr>
+<tr>
+<td><strong>Total project capital</strong></td>
+<td><strong>₹25.00 Cr</strong></td>
+</tr>
+</tbody></table>
+<p><strong>Project-level value creation (Base Case):</strong></p>
+<table>
+<thead>
+<tr>
+<th>Metric</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Total unit margin (200 units × ₹12.5L avg)</td>
+<td>₹25.00 Cr</td>
+</tr>
+<tr>
+<td>Cumulative operating margin (Years 2–5)</td>
+<td>₹3.90 Cr</td>
+</tr>
+<tr>
+<td>Post-development entity valuation</td>
+<td>₹150–200 Cr</td>
+</tr>
+<tr>
+<td>Return on invested capital (ROIC)</td>
+<td>6.2x–7.2x</td>
+</tr>
+<tr>
+<td>Estimated timeline to full capacity</td>
+<td>5–6 years</td>
+</tr>
+</tbody></table>
+<hr>
+<h2 id="vision">3. Project Vision &amp; Concept</h2>
+<h3>What We Are Building</h3>
+<p>A fully integrated <strong>geriatric care and senior retirement community</strong> — not a standalone residential project. The community will offer residents a combination of independent living, assisted care, medical support, and social infrastructure within a gated campus setting.</p>
+<p>The key differentiator is the <strong>life-care model</strong>: residents buy into the community through a significant refundable deposit, gain lifelong right of occupancy in their unit, and pay a monthly fee that covers all services — housekeeping, meals, maintenance, medical monitoring, recreation, and community management. This eliminates the financial and logistical burden of independent living while preserving dignity and autonomy.</p>
+<h3>Why Nilambur</h3>
+<ul>
+<li>Land availability with scope for a large-format community and expansion.</li>
+<li>Proximity to Calicut (Kozhikode) — regional healthcare hub, airport connectivity</li>
+<li>Kerala&#39;s strong demographic of NRIs seeking a quality care destination for ageing parents</li>
+<li>Warm, temperate climate — medically preferable for seniors over humid coastal or cold hill station settings</li>
+<li>Emerging tier-2 town with improving road and health infrastructure</li>
+</ul>
+<hr>
+<h2 id="macro">4. Macro Context — Senior Living in India</h2>
+<h3>Demographic Tailwinds</h3>
+<p>India is undergoing a significant demographic shift. The population aged 60+ is projected to reach <strong>340 million by 2050</strong>, up from approximately 140 million today. Kerala leads the country in demographic ageing — it has the <strong>highest proportion of elderly population</strong> among Indian states (approximately 12.6% as of 2021 census), driven by low fertility rates and high life expectancy.</p>
+<h3>Market Gap</h3>
+<p>Premium, community-style senior living — common in the US, UK, Singapore, and Australia — has very limited presence in India. Most elderly care today is informal (family-based) or institutional (nursing homes). Despite the demand, <strong>organised senior living supply in India remains critically underserved and underpenetrated</strong>. </p>
+<h3>NRI Demand Driver</h3>
+<p>Kerala has one of the largest NRI populations in India. A recurring challenge for NRI families is providing quality, structured care for ageing parents who prefer to remain in Kerala. A well-managed senior living community in a familiar location (Nilambur / North Kerala) directly addresses this need, and NRI families have the financial capacity to pay premium deposit and monthly fee levels.</p>
+<h3>Sector Tailwinds</h3>
+<ul>
+<li>Increasing nuclear family structures reducing ability to provide in-home elderly care</li>
+<li>Growing acceptance of assisted/independent senior living as a mainstream lifestyle choice</li>
+</ul>
+<hr>
+<h2 id="site">5. Site Overview &amp; Project Structure</h2>
+<h3>Land</h3>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Detail</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Location</td>
+<td>Nilambur, Malappuram District, Kerala</td>
+</tr>
+<tr>
+<td>Total area</td>
+<td>13 acres</td>
+</tr>
+<tr>
+<td>Current value</td>
+<td>₹13 Crores (₹1 Cr/acre)</td>
+</tr>
+<tr>
+<td>Ownership</td>
+<td>Mr. VK Thomas — sole owner, contributed in-kind to the project</td>
+</tr>
+</tbody></table>
+<h3>Zone Allocation</h3>
+<table>
+<thead>
+<tr>
+<th>Zone</th>
+<th>Area</th>
+<th>Purpose</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Common Amenities</td>
+<td>3 acres</td>
+<td>Centralized shared infrastructure</td>
+</tr>
+<tr>
+<td>Residential Block 1</td>
+<td>5 acres</td>
+<td>100 units (3 phases: 25 + 25 + 50)</td>
+</tr>
+<tr>
+<td>Residential Block 2</td>
+<td>5 acres</td>
+<td>100 units (2 phases: 50 + 50)</td>
+</tr>
+<tr>
+<td><strong>Total</strong></td>
+<td><strong>13 acres</strong></td>
+<td><strong>200 residential units</strong></td>
+</tr>
+</tbody></table>
+<h3>Unit Land Allocation</h3>
+<p>Each residential unit is allocated approximately <strong>4 cents (0.16 acres)</strong> of land within the block. The balance 1 acre per block (20%) is dedicated to internal roads, landscaping, and block-level common area.</p>
+<h3>Common Amenities Zone (3 acres)</h3>
+<p>The 3-acre amenities zone is designed and scaled to serve the full 200-unit community. Planned facilities include:</p>
+<ul>
+<li>Medical centre / clinic with 24/7 emergency support</li>
+<li>Dining hall and kitchen facility</li>
+<li>Recreation centre (indoor activities, library, lounges)</li>
+<li>Physiotherapy and wellness centre</li>
+<li>Outdoor gardens and walking tracks</li>
+<li>Administrative and staff facilities</li>
+<li>Visitor guest rooms</li>
+<li>Security and access control infrastructure</li>
+</ul>
+<h3>Residential Units</h3>
+<p>Each unit will be a self-contained, senior-friendly dwelling designed for ease of mobility, safety, and comfort. Design specifications to be finalised during master planning, but will comply with accessible housing standards for elderly residents.</p>
+<hr>
+<h2 id="revenue">6. Business &amp; Revenue Model</h2>
+<h3>Revenue Stream 1 — Unit Deposit (One-Time)</h3>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Conservative</th>
+<th>Base Case</th>
+<th>Optimistic</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Deposit per unit</td>
+<td>₹40 Lakhs</td>
+<td>₹50 Lakhs</td>
+<td>₹60 Lakhs</td>
+</tr>
+<tr>
+<td>Refundable portion</td>
+<td>80% (₹32L)</td>
+<td>80% (₹40L)</td>
+<td>80% (₹48L)</td>
+</tr>
+<tr>
+<td>Non-refundable / margin</td>
+<td>20% (₹8L)</td>
+<td>20% (₹10L)</td>
+<td>20% (₹12L)</td>
+</tr>
+<tr>
+<td>Development cost per unit</td>
+<td>₹30L</td>
+<td>₹37.5L</td>
+<td>₹45L</td>
+</tr>
+<tr>
+<td><strong>Gross margin per unit</strong></td>
+<td><strong>₹10L</strong></td>
+<td><strong>₹12.5L</strong></td>
+<td><strong>₹15L</strong></td>
+</tr>
+<tr>
+<td>Margin %</td>
+<td>25%</td>
+<td>25%</td>
+<td>25%</td>
+</tr>
+<tr>
+<td>Lock-in period</td>
+<td>Minimum 3 years</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Refund trigger</td>
+<td>Contract closure or death of resident</td>
+<td></td>
+<td></td>
+</tr>
+</tbody></table>
+<blockquote>
+<p><strong>Note:</strong> The deposit is structured as a <strong>refundable membership deposit</strong>, not a sale of property. The resident acquires a right of occupancy, not ownership. The 20% non-refundable component represents the development/membership premium and is the primary profit driver from unit economics.</p>
+</blockquote>
+<h3>Revenue Stream 2 — Monthly Maintenance &amp; Care Fee (Recurring)</h3>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Monthly fee per unit</td>
+<td>₹50,000</td>
+</tr>
+<tr>
+<td>Annual fee per unit</td>
+<td>₹6.00 Lakhs</td>
+</tr>
+<tr>
+<td>Operating cost per unit (80%)</td>
+<td>₹40,000/month</td>
+</tr>
+<tr>
+<td>Operating margin per unit (20%)</td>
+<td>₹10,000/month</td>
+</tr>
+<tr>
+<td>Annual operating margin per unit</td>
+<td>₹1.20 Lakhs</td>
+</tr>
+<tr>
+<td>Annual operating revenue (full capacity, 200 units)</td>
+<td>₹12.00 Crores</td>
+</tr>
+<tr>
+<td>Annual operating margin (full capacity, 200 units)</td>
+<td>₹2.40 Crores</td>
+</tr>
+<tr>
+<td>Operational breakeven</td>
+<td>Phase 2 (50 units)</td>
+</tr>
+</tbody></table>
+<p>The monthly fee covers all services: housekeeping, meals (3/day), security, utilities, maintenance, medical monitoring, and community management. This comprehensive bundling is central to the value proposition and drives resident retention.</p>
+<h3>Revenue Stream 3 — Unit Turnover (Long-Term)</h3>
+<p>When a resident exits (voluntarily or upon death), the membership is returned to the community. The outgoing resident receives their 80% refund. The unit is then re-let to a new resident at the prevailing membership rate — conservatively assumed at a <strong>20% premium to the previous membership price</strong>.</p>
+<h4>Turnover Economics (Illustrative)</h4>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>Generation 1</th>
+<th>Generation 2</th>
+<th>Generation 3</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Membership price</td>
+<td>₹50L</td>
+<td>₹60L</td>
+<td>₹72L</td>
+</tr>
+<tr>
+<td>Refund paid out (80%)</td>
+<td>₹40L</td>
+<td>₹48L</td>
+<td>₹57.6L</td>
+</tr>
+<tr>
+<td>New membership received</td>
+<td>₹60L</td>
+<td>₹72L</td>
+<td>₹86.4L</td>
+</tr>
+<tr>
+<td><strong>Net cash inflow per turnover</strong></td>
+<td><strong>₹20L</strong></td>
+<td><strong>₹24L</strong></td>
+<td><strong>₹28.8L</strong></td>
+</tr>
+<tr>
+<td>Margin retained (non-refundable, 20%)</td>
+<td>₹12L</td>
+<td>₹14.4L</td>
+<td>₹17.3L</td>
+</tr>
+</tbody></table>
+<p>Each turnover cycle generates a <strong>net cash surplus</strong> — the new membership receipt exceeds the refund paid. At 20% appreciation per cycle, this surplus compounds over time, making the turnover flywheel progressively more valuable.</p>
+<h4>Refund Liquidity — Bank Bridge Financing</h4>
+<p>Liquidity for refunds is not a structural constraint. The mechanism is straightforward:</p>
+<ol>
+<li>Resident gives notice of exit</li>
+<li>Community draws a short-term bank loan to fund the ₹40L refund</li>
+<li>Unit is re-let; new membership of ₹60L is collected</li>
+<li>Bank loan is repaid in full; net ₹20L is retained by the community</li>
+</ol>
+<p>The bank loan is fully secured by the incoming membership receipt — a clean, low-risk bridge. This means <strong>no operating cash needs to be tied up</strong> to fund refund obligations. The refund is effectively self-financing through the turnover cycle.</p>
+<h4>Referral Exit Option — 100% Refund if Buyer is Self-Sourced</h4>
+<p>The community can optionally offer a <strong>full 100% deposit refund</strong> to any outgoing resident who sources their own replacement buyer. This creates a parallel exit path alongside the standard bank-bridge route.</p>
+<p><strong>Economics of the referral exit (illustrative, Generation 1):</strong></p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>Standard Exit</th>
+<th>Referral Exit</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Outgoing resident refund</td>
+<td>₹40L (80%)</td>
+<td>₹50L (100%)</td>
+</tr>
+<tr>
+<td>New membership collected</td>
+<td>₹60L</td>
+<td>₹60L</td>
+</tr>
+<tr>
+<td>Bank loan required</td>
+<td>₹40L</td>
+<td>None</td>
+</tr>
+<tr>
+<td><strong>Community net retention</strong></td>
+<td><strong>₹20L</strong></td>
+<td><strong>₹10L</strong></td>
+</tr>
+</tbody></table>
+<p>The community retains ₹10L less per referral turnover versus the standard path. In exchange it gains:</p>
+<ul>
+<li><strong>No bank financing</strong> — no loan, no interest, no processing friction</li>
+<li><strong>No sales effort</strong> — the outgoing resident and their network do the work</li>
+<li><strong>No vacancy risk</strong> — buyer is lined up before exit is confirmed</li>
+<li><strong>Faster cycle</strong> — no marketing period between exit and re-letting</li>
+</ul>
+<p>The outgoing resident gains an extra ₹10L (receives ₹50L instead of ₹40L) as a direct incentive to find their own buyer. In practice this means the resident&#39;s family — often NRI children managing the transition — are financially motivated to refer the unit within their own network. This aligns naturally with the community&#39;s primary demand base.</p>
+<p>The two exit paths can coexist. Standard exit (bank bridge) remains the default. Referral exit is an elective option the community extends where it chooses. Over time, as the community builds reputation, referral exits may become the dominant path — eliminating both financing cost and sales overhead from the turnover cycle entirely.</p>
+<p>Over time, as membership values appreciate and the community reaches steady state, this flywheel becomes the dominant source of cash generation — operating entirely off the asset base already built.</p>
+<hr>
+<h2 id="capital">7. Capital Structure &amp; Funding Plan</h2>
+<h3>Promoter Contribution</h3>
+<p>The promoter contributes the 13-acre land parcel — solely owned by Mr. VK Thomas — at current market value of ₹13 Crores as an in-kind equity contribution. No cash payment is required from the promoter at this stage.</p>
+<h3>External Capital Requirement</h3>
+<p>The project requires ₹12 Crores in external cash capital. Capital is raised at the start but deployed in a gated, minimum viable sequence — expenditure before Phase 1 validation is kept as low as possible, so that if Phase 1 sales do not materialise, losses are limited and wind-down is feasible.</p>
+<p><strong>Year 0 (Pre-launch — before construction begins):</strong></p>
+<table>
+<thead>
+<tr>
+<th>Allocation</th>
+<th>Amount</th>
+<th>Purpose</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Pre-sales &amp; marketing</td>
+<td>₹0.50 Cr</td>
+<td>Brochures, site visits, outreach to NRI networks</td>
+</tr>
+<tr>
+<td>Master planning &amp; architectural design</td>
+<td>₹0.25 Cr</td>
+<td>Site plan, unit designs, RERA prep</td>
+</tr>
+<tr>
+<td><strong>Total Year 0 spend</strong></td>
+<td><strong>₹0.75 Cr</strong></td>
+<td></td>
+</tr>
+</tbody></table>
+<blockquote>
+<p>Year 0 is sales-only. No construction begins. No major infrastructure is committed. The ₹12 Cr capital is raised and held. The sole objective is to secure commitments for Phase 1 (25 units).</p>
+</blockquote>
+<p><strong>Post-validation deployment (Year 1 onwards, gated on Phase 1 sales):</strong></p>
+<table>
+<thead>
+<tr>
+<th>Allocation</th>
+<th>Amount</th>
+<th>Timing</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Common Amenities Development</td>
+<td>₹5.00 Cr</td>
+<td>Year 1 (₹2.50 Cr MVP) + Year 2 (₹2.50 Cr full build post-validation)</td>
+</tr>
+<tr>
+<td>Block 1 Land Development &amp; Infrastructure</td>
+<td>₹5.00 Cr</td>
+<td>Year 1 (₹2.50 Cr) + Year 2 (₹2.50 Cr)</td>
+</tr>
+<tr>
+<td>Initial Operating Reserve</td>
+<td>₹2.00 Cr</td>
+<td>Held in reserve, drawn as needed</td>
+</tr>
+<tr>
+<td><strong>Total</strong></td>
+<td><strong>₹12.00 Cr</strong></td>
+<td></td>
+</tr>
+</tbody></table>
+<blockquote>
+<p><strong>Capital deployment principle:</strong> amenities and infrastructure in Year 0 / Year 1 are built to a minimum viable standard sufficient to secure Phase 1 (25 units) sales. Full-scale buildout proceeds in Year 2 once Phase 1  demand is validated. This limits pre-validation capital at risk to the Year 0 spend of ~₹0.75 Cr.</p>
+</blockquote>
+<h3>Total Capitalisation</h3>
+<table>
+<thead>
+<tr>
+<th>Source</th>
+<th>Type</th>
+<th>Amount</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Promoter — land (in-kind)</td>
+<td>Equity</td>
+<td>₹13.00 Cr</td>
+</tr>
+<tr>
+<td>External capital — cash</td>
+<td>Equity</td>
+<td>₹12.00 Cr</td>
+</tr>
+<tr>
+<td>Unit deposits (from residents)</td>
+<td>Liability (80% refundable)</td>
+<td>₹100.00 Cr (gross, over 5 years)</td>
+</tr>
+<tr>
+<td><strong>Total project resources</strong></td>
+<td></td>
+<td><strong>₹125.00 Cr</strong></td>
+</tr>
+</tbody></table>
+<blockquote>
+<p><strong>Important:</strong> The ₹100 Cr in unit deposits is a <strong>balance sheet liability</strong>, not equity or revenue. It funds unit construction (₹75 Cr) and generates a ₹25 Cr surplus (margin). See Section 8G for refund liability analysis.</p>
+</blockquote>
+<h3>Block 2 Self-Funding Mechanism</h3>
+<p>Block 2 infrastructure (₹5 Crores) is not funded from the initial capital raise. It is funded from net margins generated during Block 1:</p>
+<table>
+<thead>
+<tr>
+<th>Block 1 margin proceeds</th>
+<th>₹12.50 Cr (100 units × ₹12.5L avg)</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Block 2 infra requirement</td>
+<td>₹5.00 Cr</td>
+</tr>
+<tr>
+<td><strong>Surplus for contingencies / buffer</strong></td>
+<td><strong>₹7.50 Cr</strong></td>
+</tr>
+</tbody></table>
+<p>This self-funding mechanism eliminates the need for any additional capital raise to complete the full 200-unit project.</p>
+<hr>
+<h2 id="financial">8. Financial Model</h2>
+<h3 id="assumptions">8A. Key Assumptions</h3>
+<table>
+<thead>
+<tr>
+<th>Assumption</th>
+<th>Value</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Total units</td>
+<td>200</td>
+<td>5 phases across 2 blocks (B1: 25+25+50, B2: 50+50)</td>
+</tr>
+<tr>
+<td>Phase duration</td>
+<td>12 months</td>
+<td>Construction + sales per phase</td>
+</tr>
+<tr>
+<td>Average deposit per unit</td>
+<td>₹50 Lakhs</td>
+<td>Midpoint of ₹40–60L range</td>
+</tr>
+<tr>
+<td>Unit development cost</td>
+<td>₹37.5 Lakhs</td>
+<td>Includes construction, fit-out, allocated infra share</td>
+</tr>
+<tr>
+<td>Gross margin per unit</td>
+<td>₹12.5 Lakhs</td>
+<td>25% of ₹50L</td>
+</tr>
+<tr>
+<td>Refundable portion</td>
+<td>80%</td>
+<td>₹40L returned on exit/death</td>
+</tr>
+<tr>
+<td>Monthly fee per unit</td>
+<td>₹50,000</td>
+<td>Flat fee, all-inclusive</td>
+</tr>
+<tr>
+<td>Operating cost ratio</td>
+<td>80%</td>
+<td>Of monthly fee revenue</td>
+</tr>
+<tr>
+<td>Operating margin ratio</td>
+<td>20%</td>
+<td>₹10,000/unit/month</td>
+</tr>
+<tr>
+<td>Occupancy assumption</td>
+<td>100%</td>
+<td>All units fully let within each phase year</td>
+</tr>
+<tr>
+<td>Operating revenue start</td>
+<td>Year 2 (Phase 1 residents)</td>
+<td>Phase 1 handed over end of Year 1</td>
+</tr>
+<tr>
+<td>Block 1 infra cost</td>
+<td>₹5 Cr total</td>
+<td>Year 1 (₹2.50 Cr) + Year 2 (₹2.50 Cr)</td>
+</tr>
+<tr>
+<td>Block 2 infra cost</td>
+<td>₹5 Cr total</td>
+<td>Year 4 (₹2.50 Cr) + Year 5 (₹2.50 Cr), self-funded</td>
+</tr>
+<tr>
+<td>Common amenities cost</td>
+<td>₹5 Cr</td>
+<td>Year 1 (₹2.50 Cr MVP) + Year 2 (₹2.50 Cr full build)</td>
+</tr>
+<tr>
+<td>Operating reserve</td>
+<td>₹2 Cr</td>
+<td>Capital-funded, held as liquidity buffer</td>
+</tr>
+<tr>
+<td>Appreciation at project completion</td>
+<td>₹1 Cr/unit</td>
+<td>Estimated, not yet factored into base case</td>
+</tr>
+<tr>
+<td>Land value</td>
+<td>₹13 Cr</td>
+<td>₹1 Cr/acre, 13 acres</td>
+</tr>
+<tr>
+<td>Inflation / escalation</td>
+<td>Not modelled</td>
+<td>All figures in current values</td>
+</tr>
+<tr>
+<td>Discount rate (for NPV)</td>
+<td>12%</td>
+<td>Conservative equity hurdle rate</td>
+</tr>
+</tbody></table>
+<hr>
+<h3 id="phases">8B. Phase-wise Development Plan</h3>
+<table>
+<thead>
+<tr>
+<th>Phase</th>
+<th>Block</th>
+<th>Units</th>
+<th>Year</th>
+<th>Activity</th>
+<th>Milestone</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Pre-launch</td>
+<td>—</td>
+<td>—</td>
+<td>Year 0</td>
+<td>Marketing, pre-sales, RERA prep, design, entity setup</td>
+<td>25 units committed → <strong>Validation Gate</strong> → trigger Phase 1 construction</td>
+</tr>
+<tr>
+<td>Phase 1</td>
+<td>Block 1</td>
+<td>25</td>
+<td>Year 1</td>
+<td>Construction (MVP infra + amenities)</td>
+<td><strong>End Year 1: handover 25 units → project proved</strong></td>
+</tr>
+<tr>
+<td>Phase 2</td>
+<td>Block 1</td>
+<td>25</td>
+<td>Year 2</td>
+<td>Construction + full amenities build</td>
+<td>End Year 2: 50 units operating → <strong>operational breakeven</strong></td>
+</tr>
+<tr>
+<td>Phase 3</td>
+<td>Block 1</td>
+<td>50</td>
+<td>Year 3</td>
+<td>Construction</td>
+<td>End Year 3: 100 units operating</td>
+</tr>
+<tr>
+<td>Phase 4</td>
+<td>Block 2</td>
+<td>50</td>
+<td>Year 4</td>
+<td>Construction</td>
+<td>End Year 4: 150 units operating</td>
+</tr>
+<tr>
+<td>Phase 5</td>
+<td>Block 2</td>
+<td>50</td>
+<td>Year 5</td>
+<td>Construction</td>
+<td>End Year 5: 200 units → full capacity</td>
+</tr>
+</tbody></table>
+<p><strong>Cumulative units in operation by year:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Year</th>
+<th>Units Operating</th>
+<th>Annual Op. Revenue</th>
+<th>Annual Op. Margin</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>1</td>
+<td>0</td>
+<td>₹0</td>
+<td>₹0</td>
+</tr>
+<tr>
+<td>2</td>
+<td>25</td>
+<td>₹1.50 Cr</td>
+<td>₹0.30 Cr</td>
+</tr>
+<tr>
+<td>3</td>
+<td>50</td>
+<td>₹3.00 Cr</td>
+<td>₹0.60 Cr</td>
+</tr>
+<tr>
+<td>4</td>
+<td>100</td>
+<td>₹6.00 Cr</td>
+<td>₹1.20 Cr</td>
+</tr>
+<tr>
+<td>5</td>
+<td>150</td>
+<td>₹9.00 Cr</td>
+<td>₹1.80 Cr</td>
+</tr>
+<tr>
+<td>6+</td>
+<td>200</td>
+<td>₹12.00 Cr</td>
+<td>₹2.40 Cr</td>
+</tr>
+</tbody></table>
+<hr>
+<h3 id="revenue-build">8C. Revenue Build-up</h3>
+<h4>Unit Deposit Receipts (Gross) by Phase</h4>
+<table>
+<thead>
+<tr>
+<th>Phase</th>
+<th>Year</th>
+<th>Units</th>
+<th>Deposit/Unit</th>
+<th>Gross Receipts</th>
+<th>Construction Cost</th>
+<th>Net Margin</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>B1P1</td>
+<td>1</td>
+<td>25</td>
+<td>₹50L</td>
+<td>₹12.50 Cr</td>
+<td>₹9.375 Cr</td>
+<td>₹3.125 Cr</td>
+</tr>
+<tr>
+<td>B1P2</td>
+<td>2</td>
+<td>25</td>
+<td>₹50L</td>
+<td>₹12.50 Cr</td>
+<td>₹9.375 Cr</td>
+<td>₹3.125 Cr</td>
+</tr>
+<tr>
+<td>B1P3</td>
+<td>3</td>
+<td>50</td>
+<td>₹50L</td>
+<td>₹25.00 Cr</td>
+<td>₹18.75 Cr</td>
+<td>₹6.25 Cr</td>
+</tr>
+<tr>
+<td>B2P1</td>
+<td>4</td>
+<td>50</td>
+<td>₹50L</td>
+<td>₹25.00 Cr</td>
+<td>₹18.75 Cr</td>
+<td>₹6.25 Cr</td>
+</tr>
+<tr>
+<td>B2P2</td>
+<td>5</td>
+<td>50</td>
+<td>₹50L</td>
+<td>₹25.00 Cr</td>
+<td>₹18.75 Cr</td>
+<td>₹6.25 Cr</td>
+</tr>
+<tr>
+<td><strong>Total</strong></td>
+<td></td>
+<td><strong>200</strong></td>
+<td></td>
+<td><strong>₹100.00 Cr</strong></td>
+<td><strong>₹75.00 Cr</strong></td>
+<td><strong>₹25.00 Cr</strong></td>
+</tr>
+</tbody></table>
+<p><strong>Total development margin from unit sales: ₹25.00 Crores over 5 years</strong></p>
+<h4>Cumulative Operating Margin (Years 2–5)</h4>
+<table>
+<thead>
+<tr>
+<th>Year</th>
+<th>Units</th>
+<th>Annual Op. Revenue</th>
+<th>Annual Op. Margin</th>
+<th>Cumulative Op. Margin</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>2</td>
+<td>25</td>
+<td>₹1.50 Cr</td>
+<td>₹0.30 Cr</td>
+<td>₹0.30 Cr</td>
+</tr>
+<tr>
+<td>3</td>
+<td>50</td>
+<td>₹3.00 Cr</td>
+<td>₹0.60 Cr</td>
+<td>₹0.90 Cr</td>
+</tr>
+<tr>
+<td>4</td>
+<td>100</td>
+<td>₹6.00 Cr</td>
+<td>₹1.20 Cr</td>
+<td>₹2.10 Cr</td>
+</tr>
+<tr>
+<td>5</td>
+<td>150</td>
+<td>₹9.00 Cr</td>
+<td>₹1.80 Cr</td>
+<td>₹3.90 Cr</td>
+</tr>
+</tbody></table>
+<p><strong>Cumulative operating margin through Year 5: ₹3.90 Crores</strong></p>
+<hr>
+<h3 id="costs">8D. Cost Structure</h3>
+<h4>Capital Expenditure (CapEx) Schedule</h4>
+<table>
+<thead>
+<tr>
+<th>Item</th>
+<th>Year 1</th>
+<th>Year 2</th>
+<th>Year 3</th>
+<th>Year 4</th>
+<th>Year 5</th>
+<th>Total</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Common Amenities</td>
+<td>₹2.50 Cr</td>
+<td>₹2.50 Cr</td>
+<td>—</td>
+<td>—</td>
+<td>—</td>
+<td>₹5.00 Cr</td>
+</tr>
+<tr>
+<td>Block 1 Phase Infra</td>
+<td>₹2.50 Cr</td>
+<td>₹2.50 Cr</td>
+<td>—</td>
+<td>—</td>
+<td>—</td>
+<td>₹5.00 Cr</td>
+</tr>
+<tr>
+<td>Block 2 Phase Infra</td>
+<td>—</td>
+<td>—</td>
+<td>—</td>
+<td>₹2.50 Cr</td>
+<td>₹2.50 Cr</td>
+<td>₹5.00 Cr</td>
+</tr>
+<tr>
+<td><strong>Total CapEx</strong></td>
+<td><strong>₹5.00 Cr</strong></td>
+<td><strong>₹5.00 Cr</strong></td>
+<td><strong>—</strong></td>
+<td><strong>₹2.50 Cr</strong></td>
+<td><strong>₹2.50 Cr</strong></td>
+<td><strong>₹15.00 Cr</strong></td>
+</tr>
+</tbody></table>
+<blockquote>
+<p>Block 2 infra (₹5 Cr) funded from Block 1 net margins — no additional capital required.</p>
+</blockquote>
+<h4>Unit Construction Costs (pass-through from deposits)</h4>
+<table>
+<thead>
+<tr>
+<th>Year</th>
+<th>Phase</th>
+<th>Units</th>
+<th>Cost/Unit</th>
+<th>Total Construction</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>1</td>
+<td>B1P1</td>
+<td>25</td>
+<td>₹37.5L</td>
+<td>₹9.375 Cr</td>
+</tr>
+<tr>
+<td>2</td>
+<td>B1P2</td>
+<td>25</td>
+<td>₹37.5L</td>
+<td>₹9.375 Cr</td>
+</tr>
+<tr>
+<td>3</td>
+<td>B1P3</td>
+<td>50</td>
+<td>₹37.5L</td>
+<td>₹18.75 Cr</td>
+</tr>
+<tr>
+<td>4</td>
+<td>B2P1</td>
+<td>50</td>
+<td>₹37.5L</td>
+<td>₹18.75 Cr</td>
+</tr>
+<tr>
+<td>5</td>
+<td>B2P2</td>
+<td>50</td>
+<td>₹37.5L</td>
+<td>₹18.75 Cr</td>
+</tr>
+<tr>
+<td><strong>Total</strong></td>
+<td></td>
+<td><strong>200</strong></td>
+<td></td>
+<td><strong>₹75.00 Cr</strong></td>
+</tr>
+</tbody></table>
+<h4>Operational Cost Summary (at Full Capacity)</h4>
+<table>
+<thead>
+<tr>
+<th>Category</th>
+<th>% of Monthly Fee</th>
+<th>Per Unit/Month</th>
+<th>200 Units/Year</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Food &amp; consumables</td>
+<td>~40%</td>
+<td>₹20,000</td>
+<td>₹4.80 Cr</td>
+</tr>
+<tr>
+<td>Staff (caregivers, nurses, security, housekeeping)</td>
+<td>~30%</td>
+<td>₹15,000</td>
+<td>₹3.60 Cr</td>
+</tr>
+<tr>
+<td>Utilities (electricity, water, gas)</td>
+<td>~5%</td>
+<td>₹2,500</td>
+<td>₹0.60 Cr</td>
+</tr>
+<tr>
+<td>Maintenance &amp; admin provision</td>
+<td>~5%</td>
+<td>₹2,500</td>
+<td>₹0.60 Cr</td>
+</tr>
+<tr>
+<td><strong>Total Operating Costs</strong></td>
+<td><strong>80%</strong></td>
+<td><strong>₹40,000</strong></td>
+<td><strong>₹9.60 Cr</strong></td>
+</tr>
+<tr>
+<td><strong>Operating Margin</strong></td>
+<td><strong>20%</strong></td>
+<td><strong>₹10,000</strong></td>
+<td><strong>₹2.40 Cr</strong></td>
+</tr>
+</tbody></table>
+<hr>
+<h3 id="cashflow">8E. Year-wise Cash Flow Projections</h3>
+<p>All figures in ₹ Crores. Base Case (₹50L avg deposit, ₹12.5L margin/unit).</p>
+<h4>Capital Flows</h4>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>Year 0</th>
+<th>Year 1</th>
+<th>Year 2</th>
+<th>Year 3</th>
+<th>Year 4</th>
+<th>Year 5</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>External capital (cash)</td>
+<td>+12.00</td>
+<td>—</td>
+<td>—</td>
+<td>—</td>
+<td>—</td>
+<td>—</td>
+</tr>
+<tr>
+<td>Land (in-kind)</td>
+<td>+13.00*</td>
+<td>—</td>
+<td>—</td>
+<td>—</td>
+<td>—</td>
+<td>—</td>
+</tr>
+</tbody></table>
+<p>*Land contributed as non-cash equity by promoter.</p>
+<h4>Project Cash Flows</h4>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>Year 0</th>
+<th>Year 1</th>
+<th>Year 2</th>
+<th>Year 3</th>
+<th>Year 4</th>
+<th>Year 5</th>
+<th><strong>Total</strong></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Pre-launch spend</td>
+<td>(0.75)</td>
+<td>—</td>
+<td>—</td>
+<td>—</td>
+<td>—</td>
+<td>—</td>
+<td><strong>(0.75)</strong></td>
+</tr>
+<tr>
+<td><strong>Deposits received</strong></td>
+<td>—</td>
+<td>12.50</td>
+<td>12.50</td>
+<td>25.00</td>
+<td>25.00</td>
+<td>25.00</td>
+<td><strong>100.00</strong></td>
+</tr>
+<tr>
+<td>Unit construction cost</td>
+<td>—</td>
+<td>(9.375)</td>
+<td>(9.375)</td>
+<td>(18.75)</td>
+<td>(18.75)</td>
+<td>(18.75)</td>
+<td><strong>(75.00)</strong></td>
+</tr>
+<tr>
+<td><strong>Net unit margin</strong></td>
+<td><strong>—</strong></td>
+<td><strong>3.125</strong></td>
+<td><strong>3.125</strong></td>
+<td><strong>6.25</strong></td>
+<td><strong>6.25</strong></td>
+<td><strong>6.25</strong></td>
+<td><strong>25.00</strong></td>
+</tr>
+<tr>
+<td>Infra CapEx (capital-funded)</td>
+<td>—</td>
+<td>(5.00)</td>
+<td>(5.00)</td>
+<td>—</td>
+<td>—</td>
+<td>—</td>
+<td><strong>(10.00)</strong></td>
+</tr>
+<tr>
+<td>Infra CapEx (self-funded)</td>
+<td>—</td>
+<td>—</td>
+<td>—</td>
+<td>—</td>
+<td>(2.50)</td>
+<td>(2.50)</td>
+<td><strong>(5.00)</strong></td>
+</tr>
+<tr>
+<td>Operating revenue</td>
+<td>—</td>
+<td>—</td>
+<td>1.50</td>
+<td>3.00</td>
+<td>6.00</td>
+<td>9.00</td>
+<td><strong>19.50</strong></td>
+</tr>
+<tr>
+<td>Operating costs (80%)</td>
+<td>—</td>
+<td>—</td>
+<td>(1.20)</td>
+<td>(2.40)</td>
+<td>(4.80)</td>
+<td>(7.20)</td>
+<td><strong>(15.60)</strong></td>
+</tr>
+<tr>
+<td><strong>Operating margin</strong></td>
+<td><strong>—</strong></td>
+<td><strong>—</strong></td>
+<td><strong>0.30</strong></td>
+<td><strong>0.60</strong></td>
+<td><strong>1.20</strong></td>
+<td><strong>1.80</strong></td>
+<td><strong>3.90</strong></td>
+</tr>
+<tr>
+<td><strong>Net cash flow (year)</strong></td>
+<td><strong>(0.75)</strong></td>
+<td><strong>(1.875)</strong></td>
+<td><strong>(1.575)</strong></td>
+<td><strong>6.85</strong></td>
+<td><strong>4.95</strong></td>
+<td><strong>5.55</strong></td>
+<td><strong>13.15</strong></td>
+</tr>
+</tbody></table>
+<h4>Cumulative Cash Position (Opening Cash: ₹12 Cr from capital raise)</h4>
+<table>
+<thead>
+<tr>
+<th>Year</th>
+<th>Opening Cash</th>
+<th>Net Cash Flow</th>
+<th>Closing Cash</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>0</td>
+<td>12.00</td>
+<td>(0.75)</td>
+<td><strong>11.25</strong></td>
+<td>Pre-launch only — max loss if wound down here</td>
+</tr>
+<tr>
+<td>1</td>
+<td>11.25</td>
+<td>(1.875)</td>
+<td><strong>9.375</strong></td>
+<td>Phase 1 construction — <strong>validation gate end of year</strong></td>
+</tr>
+<tr>
+<td>2</td>
+<td>9.375</td>
+<td>(1.575)</td>
+<td><strong>7.80</strong></td>
+<td>Phase 2 + full amenities — operational breakeven end of year</td>
+</tr>
+<tr>
+<td>3</td>
+<td>7.80</td>
+<td>+6.85</td>
+<td><strong>14.65</strong></td>
+<td></td>
+</tr>
+<tr>
+<td>4</td>
+<td>14.65</td>
+<td>+4.95</td>
+<td><strong>19.60</strong></td>
+<td></td>
+</tr>
+<tr>
+<td>5</td>
+<td>19.60</td>
+<td>+5.55</td>
+<td><strong>25.15</strong></td>
+<td></td>
+</tr>
+</tbody></table>
+<blockquote>
+<p>The project is <strong>never cash-negative</strong> after capital is deployed. The lowest cash balance is ₹7.80 Cr at end of Year 2, well above the ₹2 Cr operating reserve threshold.</p>
+<p><strong>Wind-down scenario:</strong> If Phase 1 sales do not materialise, the project is wound down by end of Year 1. Maximum capital loss even in a total wipeout (zero offtake) is approximately ₹6 Cr — ~₹1 Cr in pre-launch + Year 1 operating costs, and ~₹5 Cr in minimum viable infrastructure committed before the decision point. The remaining <del>₹6 Cr is undeployed and returnable. VKT has indicated willingness to sell up to 2 acres of land (</del>₹2 Cr) to partially compensate investors, reducing net investor loss to approximately ₹4 Cr in the worst case.</p>
+</blockquote>
+<hr>
+<h3 id="pl">8F. Consolidated P&amp;L Summary</h3>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>Year 1</th>
+<th>Year 2</th>
+<th>Year 3</th>
+<th>Year 4</th>
+<th>Year 5</th>
+<th><strong>Total</strong></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Unit margin (recognised)</td>
+<td>3.125</td>
+<td>3.125</td>
+<td>6.25</td>
+<td>6.25</td>
+<td>6.25</td>
+<td><strong>25.00</strong></td>
+</tr>
+<tr>
+<td>Operating margin</td>
+<td>—</td>
+<td>0.30</td>
+<td>0.60</td>
+<td>1.20</td>
+<td>1.80</td>
+<td><strong>3.90</strong></td>
+</tr>
+<tr>
+<td><strong>Total margin</strong></td>
+<td><strong>3.125</strong></td>
+<td><strong>3.425</strong></td>
+<td><strong>6.85</strong></td>
+<td><strong>7.45</strong></td>
+<td><strong>8.05</strong></td>
+<td><strong>28.90</strong></td>
+</tr>
+<tr>
+<td>Depreciation (on CapEx)*</td>
+<td>(0.75)</td>
+<td>(0.75)</td>
+<td>(0.75)</td>
+<td>(0.75)</td>
+<td>(0.75)</td>
+<td><strong>(3.75)</strong></td>
+</tr>
+<tr>
+<td><strong>EBITDA (approx.)</strong></td>
+<td><strong>3.875</strong></td>
+<td><strong>4.175</strong></td>
+<td><strong>7.60</strong></td>
+<td><strong>8.20</strong></td>
+<td><strong>8.80</strong></td>
+<td><strong>32.65</strong></td>
+</tr>
+</tbody></table>
+<p>*Depreciation indicative only — straight-line on ₹15 Cr CapEx over 20 years = ₹0.75 Cr/year. Exact treatment subject to CA&#39;s advice.</p>
+<p><strong>Total project earnings (5 years): ₹28.90 Crores</strong>
+<em>(Unit margins ₹25 Cr + Operating margins ₹3.90 Cr)</em></p>
+<hr>
+<h3 id="refund">8G. Refund Liability Analysis</h3>
+<p>This is the most significant financial obligation in the project and requires careful planning.</p>
+<h4>Liability Build-up</h4>
+<table>
+<thead>
+<tr>
+<th>Phase Completion Year</th>
+<th>Units</th>
+<th>Deposit/Unit</th>
+<th>Total Deposits</th>
+<th>Refundable (80%)</th>
+<th>Non-Refundable (20%)</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Year 1</td>
+<td>25</td>
+<td>₹50L</td>
+<td>₹12.50 Cr</td>
+<td>₹10.00 Cr</td>
+<td>₹2.50 Cr</td>
+</tr>
+<tr>
+<td>Year 2</td>
+<td>50</td>
+<td>₹50L</td>
+<td>₹25.00 Cr</td>
+<td>₹20.00 Cr</td>
+<td>₹5.00 Cr</td>
+</tr>
+<tr>
+<td>Year 3</td>
+<td>100</td>
+<td>₹50L</td>
+<td>₹50.00 Cr</td>
+<td>₹40.00 Cr</td>
+<td>₹10.00 Cr</td>
+</tr>
+<tr>
+<td>Year 4</td>
+<td>150</td>
+<td>₹50L</td>
+<td>₹75.00 Cr</td>
+<td>₹60.00 Cr</td>
+<td>₹15.00 Cr</td>
+</tr>
+<tr>
+<td>Year 5</td>
+<td>200</td>
+<td>₹50L</td>
+<td>₹100.00 Cr</td>
+<td>₹80.00 Cr</td>
+<td>₹20.00 Cr</td>
+</tr>
+</tbody></table>
+<p><strong>Total refund liability at full capacity (200 units): ₹80 Crores</strong></p>
+<h4>Refund Obligation Timing</h4>
+<p>The ₹80 Cr refund liability is a <strong>long-term, staggered obligation</strong> — not a near-term cash demand. Refunds are triggered only on:</p>
+<ol>
+<li>Resident exit (voluntary) after minimum 3-year lock-in</li>
+<li>Death of resident</li>
+</ol>
+<p>Given that residents will typically be aged 60–75 at entry, and the community operates from Year 2 onwards:</p>
+<ul>
+<li>Initial refund pressures are unlikely before Year 5–6</li>
+<li>Peak refund demand will arise in Years 10–20 as the resident cohort ages</li>
+</ul>
+<h4>Refund Management Strategy</h4>
+<table>
+<thead>
+<tr>
+<th>Mechanism</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Bank bridge financing</td>
+<td>On a resident&#39;s exit, a short-term bank loan is drawn to fund the refund. The unit is re-let; the new deposit repays the loan in full. No operating cash is tied up. The loan is fully secured by the incoming deposit and the underlying asset — a clean, low-risk bridge.</td>
+</tr>
+<tr>
+<td>Re-letting at premium</td>
+<td>Vacated units are re-let at a minimum 20% premium to the previous membership price. At the base case, this generates a net surplus of ₹20L per turnover (receive ₹60L, repay ₹40L refund via loan). The surplus grows with each subsequent cycle. See Revenue Stream 3 for turnover economics.</td>
+</tr>
+<tr>
+<td>Lock-in protection</td>
+<td>3-year minimum lock-in means no refund obligations arise before Year 4 at the earliest, giving the project time to stabilise operations and build reserves before any refund pressure.</td>
+</tr>
+<tr>
+<td>Appreciation buffer</td>
+<td>As membership values appreciate, the non-refundable margin per unit grows. At ₹1 Cr/unit, ₹80L is refundable and ₹20L is retained — the community is structurally better positioned with each passing cycle.</td>
+</tr>
+</tbody></table>
+<hr>
+<h3 id="sensitivity">8H. Sensitivity Analysis</h3>
+<h4>Scenario Analysis — Unit Economics</h4>
+<table>
+<thead>
+<tr>
+<th>Scenario</th>
+<th>Price/Unit</th>
+<th>Margin/Unit</th>
+<th>200-Unit Total Margin</th>
+<th>Comment</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Bear</td>
+<td>₹40L</td>
+<td>₹10.0L</td>
+<td>₹20.00 Cr</td>
+<td>Prices at lower end, thin margin</td>
+</tr>
+<tr>
+<td>Base</td>
+<td>₹50L</td>
+<td>₹12.5L</td>
+<td>₹25.00 Cr</td>
+<td>Central projection</td>
+</tr>
+<tr>
+<td>Bull</td>
+<td>₹60L</td>
+<td>₹15.0L</td>
+<td>₹30.00 Cr</td>
+<td>Prices at upper end</td>
+</tr>
+</tbody></table>
+<h4>Sensitivity — Operating Revenue</h4>
+<table>
+<thead>
+<tr>
+<th>Scenario</th>
+<th>Occupancy</th>
+<th>Monthly Fee</th>
+<th>Units Paying</th>
+<th>Annual Revenue</th>
+<th>Operating Costs (₹40K fixed)</th>
+<th>Annual Margin</th>
+<th>Margin %</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Bear</td>
+<td>80%</td>
+<td>₹50K</td>
+<td>160</td>
+<td>₹9.60 Cr</td>
+<td>₹7.68 Cr</td>
+<td>₹1.92 Cr</td>
+<td>20%</td>
+</tr>
+<tr>
+<td>Base</td>
+<td>100%</td>
+<td>₹50K</td>
+<td>200</td>
+<td>₹12.00 Cr</td>
+<td>₹9.60 Cr</td>
+<td>₹2.40 Cr</td>
+<td>20%</td>
+</tr>
+<tr>
+<td>Bull</td>
+<td>100%</td>
+<td>₹60K</td>
+<td>200</td>
+<td>₹14.40 Cr</td>
+<td>₹9.60 Cr</td>
+<td>₹4.80 Cr</td>
+<td>33%</td>
+</tr>
+</tbody></table>
+<blockquote>
+<p><strong>Bear distinction:</strong> same fee (₹50K), same cost base — only occupancy drops to 80%. The 20% margin ratio is preserved but applied to a smaller revenue base.</p>
+<p><strong>Bull assumption:</strong> monthly care fee achieves ₹60K/unit against a cost base that stays at ₹40K. The extra ₹10K/unit/month is additional margin — no incremental cost is assumed. This holds if the premium is driven by reputation and NRI demand rather than a higher service standard. The ₹60K care fee is not the base plan; it represents the upside if pricing power proves stronger than modelled.</p>
+</blockquote>
+<h4>Sensitivity — Total Project Margin (Unit + Operating, 5 Years)</h4>
+<table>
+<thead>
+<tr>
+<th>Scenario</th>
+<th>Unit Margin</th>
+<th>Cumul. Op. Margin (Yr 2-5)</th>
+<th>Total</th>
+<th>ROIC vs ₹25 Cr</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Bear</td>
+<td>₹20.00 Cr</td>
+<td>₹3.12 Cr</td>
+<td>₹23.12 Cr</td>
+<td>0.93x</td>
+</tr>
+<tr>
+<td>Base</td>
+<td>₹25.00 Cr</td>
+<td>₹3.90 Cr</td>
+<td>₹28.90 Cr</td>
+<td>1.16x</td>
+</tr>
+<tr>
+<td>Bull</td>
+<td>₹30.00 Cr</td>
+<td>₹7.80 Cr</td>
+<td>₹37.80 Cr</td>
+<td>1.51x</td>
+</tr>
+</tbody></table>
+<blockquote>
+<p>Note: The above ROIC is on <strong>cash return over 5 years only</strong> and does not reflect the terminal enterprise value of the operating business (which drives the 6.2x–7.2x ROIC in the valuation section). The bear case cash ROIC below 1x at the development phase horizon is expected — the real value creation is in the operating business built, not the development margins alone.</p>
+</blockquote>
+<h4>Break-even Analysis</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Minimum units to break even on operations</td>
+<td>50 units (Phase 2)</td>
+</tr>
+<tr>
+<td>Monthly fee revenue at breakeven</td>
+<td>₹25L/month</td>
+</tr>
+<tr>
+<td>Operating costs at breakeven (80%)</td>
+<td>₹20L/month</td>
+</tr>
+<tr>
+<td>Operating margin at breakeven (20%)</td>
+<td>₹5L/month</td>
+</tr>
+<tr>
+<td>Time to operational breakeven</td>
+<td>End of Year 2 / Start of Year 3</td>
+</tr>
+</tbody></table>
+<hr>
+<h2 id="valuation">9. Value Creation Summary</h2>
+<h3>Capital Employed</h3>
+<table>
+<thead>
+<tr>
+<th>Source</th>
+<th>Amount</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Land (promoter, in-kind)</td>
+<td>₹13.00 Cr</td>
+</tr>
+<tr>
+<td>External capital (cash)</td>
+<td>₹12.00 Cr</td>
+</tr>
+<tr>
+<td><strong>Total capital</strong></td>
+<td><strong>₹25.00 Cr</strong></td>
+</tr>
+</tbody></table>
+<h3>Post-Development Entity Valuation</h3>
+<p>At full capacity (200 units, Year 8+), the entity has two distinct value components:</p>
+<h4>Component 1 — Operating Business Value</h4>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Annual operating revenue</td>
+<td>₹12.00 Cr</td>
+</tr>
+<tr>
+<td>Applied revenue multiple (3x–5x)</td>
+<td>3x–5x</td>
+</tr>
+<tr>
+<td><strong>Operating business value</strong></td>
+<td><strong>₹36–60 Cr</strong></td>
+</tr>
+</tbody></table>
+<blockquote>
+<p>Revenue multiples of 3x–5x are conservative for a healthcare/senior living operating business in India. Listed senior living / healthcare operators in India trade at 5x–10x revenue.</p>
+</blockquote>
+<h4>Component 2 — Real Estate Asset Value</h4>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>Conservative</th>
+<th>Appreciated</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Unit value</td>
+<td>₹60L/unit</td>
+<td>₹1 Cr/unit (est. at completion)</td>
+</tr>
+<tr>
+<td>Units</td>
+<td>200</td>
+<td>200</td>
+</tr>
+<tr>
+<td><strong>Real estate value</strong></td>
+<td><strong>₹120 Cr</strong></td>
+<td><strong>₹200 Cr</strong></td>
+</tr>
+</tbody></table>
+<blockquote>
+<p>The ₹60L/unit is the current base value. The estimate of appreciation to ₹1 Cr/unit by project completion represents a 67% capital appreciation over the development period — reasonable for a completed, occupied, income-generating community asset.</p>
+</blockquote>
+<h4>Combined Valuation</h4>
+<table>
+<thead>
+<tr>
+<th>Scenario</th>
+<th>Operating Value</th>
+<th>RE Value</th>
+<th><strong>Total Entity Value</strong></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Conservative (3x revenue, ₹60L/unit)</td>
+<td>₹36 Cr</td>
+<td>₹120 Cr</td>
+<td><strong>₹156 Cr</strong></td>
+</tr>
+<tr>
+<td>Base (4x revenue, ₹80L/unit)</td>
+<td>₹48 Cr</td>
+<td>₹160 Cr</td>
+<td><strong>₹208 Cr</strong></td>
+</tr>
+<tr>
+<td>Optimistic (5x revenue, ₹1 Cr/unit)</td>
+<td>₹60 Cr</td>
+<td>₹200 Cr</td>
+<td><strong>₹260 Cr</strong></td>
+</tr>
+</tbody></table>
+<h4>Return on Invested Capital</h4>
+<table>
+<thead>
+<tr>
+<th>Scenario</th>
+<th>Entity Value</th>
+<th>Capital Invested</th>
+<th><strong>ROIC</strong></th>
+<th>Timeline</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Conservative</td>
+<td>₹156 Cr</td>
+<td>₹25 Cr</td>
+<td><strong>6.2x</strong></td>
+<td>8 years</td>
+</tr>
+<tr>
+<td>Base</td>
+<td>₹208 Cr</td>
+<td>₹25 Cr</td>
+<td><strong>8.3x</strong></td>
+<td>8 years</td>
+</tr>
+<tr>
+<td>Optimistic</td>
+<td>₹260 Cr</td>
+<td>₹25 Cr</td>
+<td><strong>10.4x</strong></td>
+<td>8 years</td>
+</tr>
+</tbody></table>
+<blockquote>
+<p>In addition to the terminal ROIC, cumulative cash margins of ₹28.90 Cr (base case) are generated over the 5-year development period.</p>
+</blockquote>
+<hr>
+<h2 id="risks">10. Risk Factors &amp; Mitigants</h2>
+<h3>Validation Gate — The Primary Risk Control Mechanism</h3>
+<p>The project&#39;s success or continuity is knowable within <strong>two years</strong> — Year 0 (pre-sales) and Year 1 (Phase 1 construction and handover). This is a deliberate structural choice, not a consequence of the timeline.</p>
+<p><strong>How the gate works:</strong></p>
+<ul>
+<li><strong>Year 0</strong> (2026) involves only marketing, pre-sales, and planning — total spend ≤₹0.75 Cr. No construction, no major infrastructure commitment.</li>
+<li><strong>Phase 1 construction begins only once sales confirmations start flowing.</strong> Capital and infrastructure deployment in Year 1 is kept to the minimum viable standard needed to sell and hand over Phase 1 units.</li>
+<li><strong>By end of Year 1:</strong> 25 units are sold and handed over — or they are not. This is the decision point.</li>
+</ul>
+<p><strong>Milestone 1:</strong> 25 units sold and handed over by end of Year 1 → <strong>project proved, bulk of risk retired</strong> ie concept risk retired. 
+<strong>Milestone 2:</strong> 50 units operating by end of Year 2 → <strong>operational breakeven reached</strong></p>
+<p>Beyond Milestone 2, the project is self-sustaining on operating cash flows and unit deposit cycles. Phases 3–5 represent execution risk, not concept risk.</p>
+<p><strong>Worst-case loss analysis:</strong></p>
+<p>Even in a scenario of zero offtake — no units sold in Year 0 or Year 1 — the maximum capital loss is approximately <strong>₹6 Crores</strong>. This reflects:</p>
+<ul>
+<li>Pre-launch and Year 1 operating costs (marketing, design, legal, admin): ~₹1 Cr</li>
+<li>Minimum viable infrastructure and amenities committed before the decision point: ~₹5 Cr</li>
+</ul>
+<p>The remaining ~₹6 Cr of the ₹12 Cr capital raise would be undeployed and returnable to investors.</p>
+<p><strong>Promoter downside backstop:</strong></p>
+<p>In the event of a total wipeout — zero sales, full wind-down — VKT is willing to sell up to 2 acres of the 13-acre land holding (at current value of ~₹2 Crores) to partially compensate external investors for their losses. This is a personal commitment, not a contractual one, but it reflects VKT&#39;s view of his obligation to capital partners and materially reduces the net investor loss exposure in the worst case:</p>
+<table>
+<thead>
+<tr>
+<th>Scenario</th>
+<th>Gross Loss</th>
+<th>VKT Land Sale</th>
+<th>Net Investor Loss</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Total wipeout (zero sales, full wind-down)</td>
+<td>~₹6 Cr</td>
+<td>₹2 Cr (2 acres)</td>
+<td><strong>~₹4 Cr</strong></td>
+</tr>
+</tbody></table>
+<p>This is a project where the downside is bounded, knowable, and time-limited. The upside, if Phase 1 validates, is a path to a ₹150–200 Cr+ asset.</p>
+<hr>
+<h3>Risk Register</h3>
+<table>
+<thead>
+<tr>
+<th>Risk</th>
+<th>Impact</th>
+<th>Mitigation</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Phase 1 sales fail to materialise</td>
+<td>High</td>
+<td><strong>Validation gate</strong>: decision knowable within 2 years (Y0+Y1). Max loss ~₹6 Cr even with zero offtake (₹1 Cr opex + ₹5 Cr minimum infra); <del>₹6 Cr capital returnable. VKT land sale backstop (</del>₹2 Cr) reduces net investor loss to ~₹4 Cr.</td>
+</tr>
+<tr>
+<td>Slower-than-expected unit sales</td>
+<td>High</td>
+<td>Phased approach — Phase 2 only begins after Phase 1 is substantially sold. No commitment to next phase until demand is demonstrated.</td>
+</tr>
+<tr>
+<td>Construction cost overruns</td>
+<td>Medium</td>
+<td>Fixed-price construction contracts with reputable contractors. Contingency within operating reserve.</td>
+</tr>
+<tr>
+<td>Lower-than-modelled deposit prices</td>
+<td>Medium</td>
+<td>Even at ₹40L/unit (bear case), project remains viable. ₹10L margin vs ₹12.5L base still covers all CapEx obligations.</td>
+</tr>
+<tr>
+<td>Operational management challenges</td>
+<td>High</td>
+<td>Hire an experienced senior living management company or specialist operator for day-to-day operations. Operations to be run professionally, not informally.</td>
+</tr>
+<tr>
+<td>Refund liability concentration risk</td>
+<td>High (long-term)</td>
+<td>Refund reserve fund, unit turnover strategy, 3-year lock-in. Critical to model and provision for from Year 5 onwards.</td>
+</tr>
+<tr>
+<td>RERA compliance delays</td>
+<td>Medium</td>
+<td>Register each phase as a RERA project. Early registration recommended to build buyer confidence.</td>
+</tr>
+<tr>
+<td>Market acceptance in Nilambur</td>
+<td>High</td>
+<td>Demand validation through pre-sales / expressions of interest before Phase 1 construction commitment. Target NRI families early.</td>
+</tr>
+<tr>
+<td>Key person / management risk</td>
+<td>High</td>
+<td>Governance structures and experienced management hired before project launch.</td>
+</tr>
+</tbody></table>
+<hr>
+<h2 id="ca-review">11. Areas for CA Review &amp; Advisory</h2>
+<p>As set out in the Note to CA, VKT is sharing this document for two things: a sanity check on the project economics, and open-ended advisory input on anything that stands out. Two specific areas where structured input would be most useful are noted below.</p>
+<h3>1. Sanity Check — Project Economics</h3>
+<p>The financial model is built on a set of stated assumptions (Section 8A). VKT would welcome the CA&#39;s view on whether the model holds together structurally — particularly the refundable deposit mechanics, the capital requirement and deployment sequence, the refund liability build-up, and the overall unit economics. Are there gaps, flawed assumptions, or risks in the numbers that aren&#39;t currently visible?</p>
+<h3>2. Entity Structure</h3>
+<p>Nothing has been incorporated yet. VKT would find it helpful to understand what legal entity makes sense for a project of this nature — whether that is a private limited company, an LLP, a trust, or something else. The key considerations are how the membership deposits and margins are treated for tax purposes, liability protection for the promoter, and governance of the resident community over time.</p>
+<h3>3. Land Contribution</h3>
+<p>The 13-acre land is solely owned by Mr. VK Thomas and will be contributed to the project entity as the promoter&#39;s equity stake. VKT would like input on whether an outright contribution or a lease arrangement is preferable, the personal tax implications for VKT, and whether a formal valuation certificate is needed.</p>
+<h3>4. Anything Else</h3>
+<p>Beyond the above — if there are structural concerns, blind spots, or things VKT should be thinking about before going further with this, that input is welcome.</p>
+<hr>
+<h2 id="appendix">Appendix: Summary Financial Snapshot</h2>
+<table>
+<thead>
+<tr>
+<th>Metric</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Total units</td>
+<td>200</td>
+</tr>
+<tr>
+<td>Development timeline</td>
+<td>5 years</td>
+</tr>
+<tr>
+<td>Total deposits collected (gross)</td>
+<td>₹100 Cr</td>
+</tr>
+<tr>
+<td>Total construction cost</td>
+<td>₹75 Cr</td>
+</tr>
+<tr>
+<td>Total infrastructure CapEx</td>
+<td>₹15 Cr</td>
+</tr>
+<tr>
+<td>Total external capital required (cash)</td>
+<td>₹12 Cr</td>
+</tr>
+<tr>
+<td>Total capital (incl. land)</td>
+<td>₹25 Cr</td>
+</tr>
+<tr>
+<td>Net unit development margin</td>
+<td>₹25 Cr</td>
+</tr>
+<tr>
+<td>Cumulative operating margin (Yr 2–5)</td>
+<td>₹3.90 Cr</td>
+</tr>
+<tr>
+<td><strong>Total cash margin generated (Yr 1–5)</strong></td>
+<td><strong>₹28.90 Cr</strong></td>
+</tr>
+<tr>
+<td>Peak refund liability (Year 5)</td>
+<td>₹80 Cr</td>
+</tr>
+<tr>
+<td>Post-development entity valuation</td>
+<td>₹156–260 Cr</td>
+</tr>
+<tr>
+<td><strong>Return on invested capital</strong></td>
+<td><strong>6.2x–10.4x</strong></td>
+</tr>
+<tr>
+<td>Annual operating revenue at full capacity</td>
+<td>₹12 Cr</td>
+</tr>
+<tr>
+<td>Annual operating margin at full capacity</td>
+<td>₹2.40 Cr</td>
+</tr>
+<tr>
+<td>Operational breakeven</td>
+<td>Phase 2 (50 units)</td>
+</tr>
+</tbody></table>
+<hr>
+<h2>Appendix: Cash Flow Workings</h2>
+<p>Year-by-year build of the net cash flow figures used in Section 8E.</p>
+<p>Each year&#39;s net cash flow = <strong>Net unit margin</strong> + <strong>Operating margin</strong> − <strong>CapEx</strong></p>
+<hr>
+<p><strong>Year 0: (₹0.75 Cr)</strong></p>
+<table>
+<thead>
+<tr>
+<th>Item</th>
+<th>₹ Cr</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Pre-launch spend (marketing, design, legal)</td>
+<td>(0.75)</td>
+</tr>
+<tr>
+<td><strong>Net cash flow</strong></td>
+<td><strong>(0.75)</strong></td>
+</tr>
+</tbody></table>
+<hr>
+<p><strong>Year 1: (₹1.875 Cr)</strong></p>
+<table>
+<thead>
+<tr>
+<th>Item</th>
+<th>₹ Cr</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Net unit margin — 25 units × ₹12.5L</td>
+<td>+3.125</td>
+</tr>
+<tr>
+<td>Infra CapEx — amenities MVP (₹2.50 Cr) + Block 1 infra (₹2.50 Cr)</td>
+<td>(5.00)</td>
+</tr>
+<tr>
+<td>Operating margin — nil (units not yet handed over)</td>
+<td>—</td>
+</tr>
+<tr>
+<td><strong>Net cash flow: 3.125 − 5.00</strong></td>
+<td><strong>(1.875)</strong></td>
+</tr>
+</tbody></table>
+<hr>
+<p><strong>Year 2: (₹1.575 Cr)</strong></p>
+<table>
+<thead>
+<tr>
+<th>Item</th>
+<th>₹ Cr</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Net unit margin — 25 units × ₹12.5L</td>
+<td>+3.125</td>
+</tr>
+<tr>
+<td>Infra CapEx — amenities full build (₹2.50 Cr) + Block 1 infra (₹2.50 Cr)</td>
+<td>(5.00)</td>
+</tr>
+<tr>
+<td>Operating margin — 25 units × ₹10K/month × 12</td>
+<td>+0.30</td>
+</tr>
+<tr>
+<td><strong>Net cash flow: 3.125 − 5.00 + 0.30</strong></td>
+<td><strong>(1.575)</strong></td>
+</tr>
+</tbody></table>
+<hr>
+<p><strong>Year 3: +₹6.85 Cr</strong></p>
+<table>
+<thead>
+<tr>
+<th>Item</th>
+<th>₹ Cr</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Net unit margin — 50 units × ₹12.5L</td>
+<td>+6.25</td>
+</tr>
+<tr>
+<td>Infra CapEx — none (Block 1 complete, Block 2 not yet started)</td>
+<td>—</td>
+</tr>
+<tr>
+<td>Operating margin — 50 units × ₹10K/month × 12</td>
+<td>+0.60</td>
+</tr>
+<tr>
+<td><strong>Net cash flow: 6.25 + 0.60</strong></td>
+<td><strong>+6.85</strong></td>
+</tr>
+</tbody></table>
+<hr>
+<p><strong>Year 4: +₹4.95 Cr</strong></p>
+<table>
+<thead>
+<tr>
+<th>Item</th>
+<th>₹ Cr</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Net unit margin — 50 units × ₹12.5L</td>
+<td>+6.25</td>
+</tr>
+<tr>
+<td>Infra CapEx — Block 2 infra Phase 1 (self-funded from Block 1 margins)</td>
+<td>(2.50)</td>
+</tr>
+<tr>
+<td>Operating margin — 100 units × ₹10K/month × 12</td>
+<td>+1.20</td>
+</tr>
+<tr>
+<td><strong>Net cash flow: 6.25 − 2.50 + 1.20</strong></td>
+<td><strong>+4.95</strong></td>
+</tr>
+</tbody></table>
+<hr>
+<p><strong>Year 5: +₹5.55 Cr</strong></p>
+<table>
+<thead>
+<tr>
+<th>Item</th>
+<th>₹ Cr</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Net unit margin — 50 units × ₹12.5L</td>
+<td>+6.25</td>
+</tr>
+<tr>
+<td>Infra CapEx — Block 2 infra Phase 2 (self-funded)</td>
+<td>(2.50)</td>
+</tr>
+<tr>
+<td>Operating margin — 150 units × ₹10K/month × 12</td>
+<td>+1.80</td>
+</tr>
+<tr>
+<td><strong>Net cash flow: 6.25 − 2.50 + 1.80</strong></td>
+<td><strong>+5.55</strong></td>
+</tr>
+</tbody></table>
+<hr>
+<p><strong>Note on operating margin calculation:</strong></p>
+<ul>
+<li>Per unit per month: ₹50,000 fee − ₹40,000 cost = ₹10,000 margin</li>
+<li>Annual per unit: ₹10,000 × 12 = ₹1.20 Lakhs</li>
+<li>Year 2 (25 units): 25 × ₹1.20L = ₹30L = ₹0.30 Cr</li>
+<li>Year 3 (50 units): 50 × ₹1.20L = ₹60L = ₹0.60 Cr</li>
+<li>Year 4 (100 units): 100 × ₹1.20L = ₹1.20 Cr</li>
+<li>Year 5 (150 units): 150 × ₹1.20L = ₹1.80 Cr</li>
+</ul>
+<p><strong>Note on unit margin calculation:</strong></p>
+<ul>
+<li>Per unit: ₹50L deposit − ₹37.5L construction cost = ₹12.5L margin</li>
+<li>Year 1 &amp; 2 (25 units each): 25 × ₹12.5L = ₹312.5L = ₹3.125 Cr</li>
+<li>Years 3, 4 &amp; 5 (50 units each): 50 × ₹12.5L = ₹625L = ₹6.25 Cr</li>
+</ul>
+<hr>
+<p><em>This document has been prepared as an internal working paper for review by the promoter&#39;s CA. All financial projections are based on stated assumptions and are indicative in nature. Actual results will depend on market conditions, execution, regulatory approvals, and other factors. This document does not constitute a prospectus or offer of securities.</em></p>
+<p><em>For CA review and advisory — confidential.</em></p>
+
+
+  </main>
+</div>
+
+<footer class="site-footer">
+  Internal working paper — Nilambur Senior Living Community — March 2026 — Draft Confidential
+</footer>
+
+</body>
+</html>
